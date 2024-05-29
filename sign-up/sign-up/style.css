@@ -18,10 +18,18 @@ h3{
   display : block;
   text-align : center;
 }
-h2{
+#sign{
   margin : 0em;
   float : left;
   padding-left : 10px;
+  font-size:24px;
+  margin-bottom:10px;
+}
+.app{ 
+  margin-top : 1em;
+  display : block;
+  text-align : center;
+  font-size : 16px;
 }
 img.logo{
   width : 170px;
@@ -30,16 +38,16 @@ img.logo{
 }
 .screen-1 {
   background: #fcfcfc;
-  padding-left: 3em;
-  padding-right : 3em;
+  padding-left: 27px;
+  padding-right : 27px;
   padding-bottom : 2em;
   padding-top : 1em;
   display: flex;
   flex-direction: column;
   border-radius: 30px;
   box-shadow: 0 0 2em #e6e9f9;
-  gap: 10px;
-  max-width: 500px; width: 100%; box-sizing: border-box;
+  max-width: 393px; width: 100%; box-sizing: border-box;
+  max-height: 852px; height: 100%;
 }
 .screen-1 .input-fields {
   display: flex;
