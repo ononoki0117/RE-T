@@ -1,0 +1,188 @@
+* {
+  font-family: "Poppins";
+}
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  background: #fcfcfc;
+  height: 100vh;
+}
+
+h3 {
+  margin-top: 1em;
+  display: block;
+  text-align: center;
+}
+
+h2 {
+  margin: 0em;
+  float: left;
+  padding-left: 10px;
+}
+
+.screen-1 {
+  background: #fcfcfc;
+  padding-left: 3em;
+  padding-right: 3em;
+  padding-bottom: 2em;
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 0 0 2em #e6e9f9;
+  gap: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.screen-1 .input-fields {
+  display: flex;
+  gap: 6em;
+}
+
+.screen-1 .circle {
+  margin: 0 auto;
+  width: 160px;
+  height: 160px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid black;
+}
+
+.screen-1 .circle2 {
+  width: 150px;
+  height: 150px;
+  background-color: rgb(221, 221, 221);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle2 img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.screen-1 .line {
+  width: 400px;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.screen-1 .name {
+  flex: 1;
+  background: #f1f1f1;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  border-radius: 20px;
+  color: #4d4d4d;
+  height: 2.5em;
+}
+
+.container label {
+  display: flex;
+  flex-direction: column;
+}
+
+.container input {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  height: 1.5em;
+  padding: 0.5em;
+  box-sizing: border-box;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.screen-1 .name input::-moz-placeholder {
+  color: black;
+  font-size: 2.0em;
+  background: #f1f1f1;
+}
+
+.screen-1 .name input:-ms-input-placeholder {
+  color: black;
+  font-size: 2.0em;
+  background: #f1f1f1;
+}
+
+.screen-1 .name input::placeholder {
+  background: #f1f1f1;
+  color: #6A6A6A;
+  font-size: 2.0em;
+}
+
+.screen-1 .login {
+  padding: 1em;
+  background: #546FFF;
+  color: #fcfcfc;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  float: bottom;
+  height: 2.5em;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.screen-1 .footer {
+  display: flex;
+  font-size: 0.7em;
+  color: #5e5e5e;
+  gap: 14em;
+  padding-bottom: 10em;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen-1 .footer span {
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  margin-top: 0.5em;
+  justify-content: center;
+  align-items: center;
+}
+
+#fileInput {
+  display: none;
+}
