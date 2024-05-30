@@ -1,0 +1,133 @@
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.screen {
+  background: #fcfcfc;
+  padding-left: 27px;
+  padding-right : 27px;
+  padding-bottom : 2em;
+  padding-top : 1em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 0 0 2em #e6e9f9;
+  max-width: 393px; width: 100%; box-sizing: border-box;
+  max-height: 852px; height: 100%;
+}
+
+.screen .view {
+  position: absolute;
+  width: 338px;
+  height: 39px;
+  top: 69px;
+  left: 29px;
+}
+
+.screen .line {
+  position: absolute;
+  width: 336px;
+  height: 1px;
+  top: 38px;
+  left: 0;
+}
+
+.screen .text-wrapper {
+  position: absolute;
+  width: 100px;
+  top: 0;
+  left: 117px;
+  font-family: "Pretendard-Bold", Helvetica;
+  font-weight: 700;
+  color: #23262f;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.screen .element {
+  position: absolute;
+  width: 135px;
+  height: 135px;
+  top: 147px;
+  left: 129px;
+  object-fit: cover;
+}
+
+.screen .patient {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 139px;
+  height: 189px;
+  gap: 33px;
+  padding: 50px 22px 18px;
+  position: absolute;
+  top: 354px;
+  left: 39px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  border-color: #000000;
+  background-color: #fcfcfc;
+}
+
+.screen .vector {
+  position: relative;
+  width: 52px;
+  height: 65px;
+}
+
+.screen .div {
+  width: 95px;
+  position: relative;
+  height: 23px;
+  font-family: "Inter", Helvetica;
+  font-weight: 200;
+  color: #546fff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.screen .re-tner {
+  display: flex;
+  flex-direction: column;
+  width: 139px;
+  height: 189px;
+  align-items: center;
+  gap: 36px;
+  padding: 50px 22px 18px;
+  position: absolute;
+  top: 354px;
+  left: 218px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  border-color: #000000;
+  background-color: #fcfcfc;
+}
+
+.screen .union {
+  position: relative;
+  width: 56px;
+  height: 68.5px;
+}
+
+.screen .text-wrapper-2 {
+  width: 102px;
+  margin-bottom: -6px;
+  margin-left: -3.5px;
+  margin-right: -3.5px;
+  position: relative;
+  height: 23px;
+  font-family: "Inter", Helvetica;
+  font-weight: 200;
+  color: #546fff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
