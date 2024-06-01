@@ -20,13 +20,18 @@ img.logo{
   padding : 65px;
 }
 .screen-1 {
+  
   background: #fcfcfc;
-  padding: 2em;
+  padding-left: 27px;
+  padding-right : 27px;
+  padding-bottom : 2em;
+  padding-top : 1em;
   display: flex;
   flex-direction: column;
   border-radius: 30px;
   box-shadow: 0 0 2em #e6e9f9;
-  gap: 2em;
+  max-width: 393px; width: 100%; box-sizing: border-box;
+  max-height: 852px; height: 100%;
 }
 .screen-1 .logo {
   margin-top: -3em;
@@ -68,6 +73,7 @@ img.logo{
   gap: 0.5em;
   border-radius: 20px;
   color: #4d4d4d;
+  margin-bottom : 65px;
 }
 .screen-1 .password input {
   outline: none;
@@ -99,6 +105,8 @@ img.logo{
   border: none;
   border-radius: 30px;
   font-weight: 600;
+  margin-bottom : 46px;
+
 }
 .screen-1 .footer {
   display: flex;
