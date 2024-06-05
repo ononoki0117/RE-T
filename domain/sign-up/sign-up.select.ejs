@@ -7,9 +7,9 @@
     <meta name="viewport"
         content="width=device-width, initial-scale = 1.0, minimum-scale  = 1.0, maximum-scale = 1.0, user-scalable = no">
 
-    <link rel="stylesheet" href="/style/select/globals.css" />
-    <link rel="stylesheet" href="/style/select/styleguide.css" />
-    <link rel="stylesheet" href="/style/select/style.css" />
+    <link rel="stylesheet" href="/style/sign-up/select/globals.css" />
+    <link rel="stylesheet" href="/style/sign-up/select/styleguide.css" />
+    <link rel="stylesheet" href="/style/sign-up/select/style.css" />
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 
         <img class="element" src="/img/1.png" />
         <div>
-            <button class="patient" onclick="alert('버튼')">
+            <button class="patient">
                 <img class="vector" src="/img/vector.svg" alt="Vector Icon" />
                 <span class="text-wrapper-2">환자 회원가입</span>
             </button>
@@ -37,5 +37,15 @@
 
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+    $('.patient').click(function (e) {
+        location.href = '/sign-up/patient/agree';
+    });
+    $('.re-tner').click(function (e) {
+        location.href = '/sign-up/re-tner/agree';
+    });
+</script>
 
 </html>
