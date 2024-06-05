@@ -1,0 +1,115 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensures the body takes the full viewport height */
+  margin: 0; /* Removes default body margin */
+}
+
+.screen {
+  background: #fcfcfc;
+  padding-left: 27px;
+  padding-right: 27px;
+  padding-bottom: 2em;
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centering contents horizontally */
+  border-radius: 30px;
+  box-shadow: 0 0 2em #e6e9f9;
+  max-width: 393px;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 852px;
+  height: 100%;
+  position: relative; /* Keeps absolute positioning for children */
+}
+
+.screen .view {
+  position: absolute;
+  width: 338px;
+  height: 39px;
+  top: 69px;
+  left: 50%;
+  transform: translateX(-50%); /* Centers horizontally */
+}
+
+.screen .line {
+  position: absolute;
+  width: 336px;
+  height: 1px;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%); /* Centers horizontally */
+}
+
+.screen .text-wrapper {
+  position: absolute;
+  width: 100px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Centers horizontally */
+  font-family: "Pretendard-Bold", Helvetica;
+  font-weight: 700;
+  color: #23262f;
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.screen .element {
+  position: absolute;
+  width: 135px;
+  height: 135px;
+  top: 147px;
+  left: 50%;
+  transform: translateX(-50%); /* Centers horizontally */
+  object-fit: cover;
+}
+
+.screen .patient, .screen .re-tner {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 139px;
+  height: 189px;
+  gap: 30px;
+  padding: 50px 22px 18px;
+  position: absolute;
+  top: 354px;
+  border-radius: 10px;
+  border: 0.5px solid;
+  border-color: #000000;
+  background-color: #fcfcfc;
+}
+
+.screen .patient {
+  left: 50%;
+  transform: translateX(-160px); /* Adjusts position to the left */
+}
+
+.screen .re-tner {
+  left: 50%;
+  transform: translateX(20px); /* Adjusts position to the right */
+}
+
+.screen .vector, .screen .union {
+  position: relative;
+  width: 52px;
+  height: 65px;
+}
+
+.screen .div, .screen .text-wrapper-2 {
+  width: 102px;
+  position: relative;
+  height: 23px;
+  font-family: "Inter", Helvetica;
+  font-weight: 200;
+  color: #546fff;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
