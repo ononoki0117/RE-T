@@ -20,32 +20,18 @@
                 <h4 stroke="2">RE:T</h4>
             </div>
         </div>
-
         <img class="element" src="/img/1.png" />
         <div>
-            <button class="patient">
+            <button class="patient" onclick="location.href='/sign-up/patient'">
                 <img class="vector" src="/img/vector.svg" alt="Vector Icon" />
                 <span class="text-wrapper-2">환자 회원가입</span>
             </button>
-
-
-            <button class="re-tner">
+            <button class="re-tner" onclick="location.href='/sign-up/re-tner'">
                 <img class="union" src="/img/union.svg" alt="Union Icon" />
                 <span class="text-wrapper-2">리트너 회원가입</span>
             </button>
         </div>
-
     </div>
 </body>
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-<script>
-    $('.patient').click(function (e) {
-        location.href = '/sign-up/patient/agree';
-    });
-    $('.re-tner').click(function (e) {
-        location.href = '/sign-up/re-tner/agree';
-    });
-</script>
 
 </html>
