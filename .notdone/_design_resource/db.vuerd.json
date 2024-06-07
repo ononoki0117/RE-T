@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -477,
-    "scrollLeft": -781,
+    "scrollTop": -507,
+    "scrollLeft": -737,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -711,9 +711,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 377.4442,
-          "top": 661.4999,
-          "zIndex": 5,
+          "left": 338.4442,
+          "top": 650.4999,
+          "zIndex": 9,
           "widthName": 60,
           "widthComment": 60
         },
@@ -967,7 +967,7 @@
             "0cd068b7-5246-4585-88f6-0027fcdc5168"
           ],
           "x": 949.9168,
-          "y": 817.1388,
+          "y": 892.6388,
           "direction": "left"
         },
         "end": {
@@ -975,8 +975,8 @@
           "columnIds": [
             "49b85516-110e-4881-8203-2a51987e81c1"
           ],
-          "x": 738.1450056640625,
-          "y": 736.9999,
+          "x": 699.1450056640625,
+          "y": 725.9999,
           "direction": "right"
         },
         "constraintName": "fk_patients_to_aches",
@@ -1019,7 +1019,7 @@
             "0cd068b7-5246-4585-88f6-0027fcdc5168"
           ],
           "x": 949.9168,
-          "y": 892.6388,
+          "y": 817.1388,
           "direction": "left"
         },
         "end": {

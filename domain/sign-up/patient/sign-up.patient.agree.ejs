@@ -24,19 +24,19 @@
         <form method="post" action="/sign-up/patient/verification">
             <div class="checkbox_group">
                 <div class="all_agree">
-                    <input type="checkbox" id="check_all" name="checkbox" onclick="selectAll(this)">
+                    <input type="checkbox" id="check_all" name="check_all" onclick="selectAll(this)">
                     <label for="check_all"><b>전체 동의합니다</b></label>
                 </div>
                 <div class="normal_agree">
-                    <input type="checkbox" id="check_1" name="checkbox">
+                    <input type="checkbox" id="check_1" name="check_1">
                     <label for="check_1">만 14세 이상입니다 (필수)</label>
                 </div>
                 <div class="normal_agree">
-                    <input type="checkbox" id="check_2" name="checkbox">
+                    <input type="checkbox" id="check_2" name="check_2">
                     <label for="check_2">서비스 이용약관 동의 (필수)</label>
                 </div>
                 <div class="normal_agree">
-                    <input type="checkbox" id="check_3" name="checkbox">
+                    <input type="checkbox" id="check_3" name="check_3">
                     <label for="check_3">개인정보 수집 및 이용 동의 (필수)</label>
                 </div>
             </div>
@@ -46,8 +46,10 @@
     </div>
 </body>
 <script>
+    // Todo : 다른 것 동의 3개를 눌러도 check_all 이 check 되도록 바꿀것
+    // 지금 형태로는 check_all 을 눌렀을때 다른 check box가 바뀌기는 하는데 check box를 전부 체크 해도 check_all 이 바뀌지는 않음
     function selectAll(selectAll) {
-        const checkboxes = document.getElementsByName('checkbox');
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         checkboxes.forEach((checkbox) => {
             checkbox.checked = selectAll.checked;
         });

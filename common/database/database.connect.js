@@ -3,15 +3,40 @@ let mydb;
 const mongoClient = require('mongodb').MongoClient;
 const mongoURL = process.env.DB_URL;
 
+mongoClient
+    .connect(mongoURL)
+    .then(mongoClient => {
+        console.log(`connection success : ${mongoURL}`);
+
+        // Setting database
+        mydb = mongoClient.db(process.env.DB_NAME);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
 // Make Database Connection 
-const connect = mongoClient.connect(mongoURL).then(mongoClient => {
-    console.log(`connection success : ${mongoURL}`);
+const connect = function (callback) {
+    return new Promise((resolve, reject) => {
+        if (mydb) {
+            resolve();
+        }
+        mongoClient.connect(mongoURL)
+            .then(mongoClient => {
+                console.log(`connection success : ${mongoURL}`);
 
-    // Setting database
-    mydb = mongoClient.db(process.env.DB_NAME);
+                // Setting database
+                mydb = mongoClient.db(process.env.DB_NAME);
+                resolve();
+            })
+            .catch(err => {
+                console.log(err);
+                reject(err);
+            });
+    })
+}
 
-}).catch(err => {
-    console.log(err);
-});
-
-module.exports = { mydb, mongoClient, mongoURL, connect };
+const getDB = function () {
+    return mydb;
+}
+module.exports = { getDB, mongoClient, mongoURL, connect };
