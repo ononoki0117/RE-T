@@ -1,5 +1,7 @@
 const connection = require('../database/database.connect');
+const save = require('../database/database.save');
 
+// 중복되는 ID가 있는지 검사하는 Promise
 const validateID = function (result, patient_login_id) {
     return new Promise((resolve, reject) => {
         if (result.length > 0) {
@@ -13,30 +15,7 @@ const validateID = function (result, patient_login_id) {
     })
 }
 
-const save2DB = function (db, model) {
-    return new Promise((resolve, reject) => {
-        const id = model.patient_login_id;
-        const password = model.patient_password;
-        const staff_id = model.staff_id;
-
-        db.collection('USER_PATIENT')
-            .insertOne({
-                patient_login_id: id,
-                patient_password: password,
-                staff_id: staff_id
-            })
-            .then((result) => {
-                console.log(result);
-                console.log('회원가입 성공');
-                resolve(result);
-            })
-            .catch((err) => {
-                console.log(err);
-                reject(err);
-            });
-    })
-}
-
+// 환자 객체 => model은 환자 정보 객체
 const patient = {
     model: {
         _id: null,
@@ -47,9 +26,7 @@ const patient = {
 
     register: function () {
         const id = this.model.patient_login_id;
-        const password = this.model.patient_password;
-        const staff_id = this.model.staff_id;
-
+        // DB 조작 코드가 여기있는게 마음에 들지 않음... 
         return new Promise((resolve, reject) => {
             connection.connect().then(() => {
                 const db = connection.getDB()
@@ -63,7 +40,7 @@ const patient = {
                     })
                     .then((result) => {
                         console.log('validate' + JSON.stringify(result));
-                        return save2DB(db, this.model);
+                        return save.save(db, this.model, 'USER_PATIENT');
                     })
                     .catch((err) => {
                         console.log("validate err! " + JSON.stringify(err));

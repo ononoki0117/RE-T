@@ -64,6 +64,8 @@ const confirmPrivacyInformation = function (req, res) {
         return;
     }
 
+    delete patient.model.patient_password_repeat;
+
     patient.register()
         .then((result) => {
             console.log(`프로미스의 결과값? ${JSON.stringify(result)}`);
@@ -74,14 +76,6 @@ const confirmPrivacyInformation = function (req, res) {
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
             res.write("<script>alert('ID가 중복됩니다! 다른 아이디를 사용해 주세요!');  history.go(-1);</script>");
         })
-
-    // if (result) {
-    // }
-    // else {
-    //     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-    //     res.write("<script>alert('ID가 중복됩니다! 다른 아이디를 사용해 주세요!');  history.go(-1);</script>");
-    // }
-
 }
 
 // 환자 프로필 사진 서버에 저장 후 회원가입 완료 절차

@@ -20,6 +20,14 @@ app.use(express.static('public'));
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Setting session for auth
+let session = require('express-session');
+app.use(session({
+    secret: 'dkufe9',
+    resave: false,
+    saveUninitialized: true,
+}))
+
 // Setting ejs template engine 
 app.set('view engine', 'ejs');
 
@@ -27,14 +35,7 @@ app.set('view engine', 'ejs');
 app.set('views', './domain');
 
 // Setting router module
-app.use('/', require('./domain/login/login.js'));
-app.use('/', require('./domain/sign-up/sign-up.router.js'))
-
-// Basic Router 
-// Todo: Eliminate router code in server.js 
-app.get('/', function (req, res) {
-    res.redirect('/login');
-});
+app.use('/', require('./router'));
 
 // Start Server
 app.listen(port, () => {

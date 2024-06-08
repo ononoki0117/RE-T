@@ -16,7 +16,7 @@ mongoClient
     });
 
 // Make Database Connection 
-const connect = function (callback) {
+const connect = function () {
     return new Promise((resolve, reject) => {
         if (mydb) {
             resolve();
@@ -39,4 +39,5 @@ const connect = function (callback) {
 const getDB = function () {
     return mydb;
 }
-module.exports = { getDB, mongoClient, mongoURL, connect };
+
+module.exports = { getDB, connect };

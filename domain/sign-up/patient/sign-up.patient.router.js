@@ -17,7 +17,7 @@ router
 
 router
     .route('/sign-up/patient/enter-information')
-    .get(controller.confirmVerification) // 테스트 용으로 잠시 바꿔 둠
+    .get(controller.detectInvalidAccess) // 테스트 용으로 잠시 바꿔 둠
     .post(controller.confirmVerification);
 
 // 회원정보를 db에 넘긴 후 profile화면으로 넘어갈거임 
