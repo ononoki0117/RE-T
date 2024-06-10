@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE:T : 회원가입</title>
+</head>
+
+<body>
+    <h1>본인 인증 페이지</h1>
+    <br>
+    <h2><span style="font-weight: 900;">"..."</span></h2>
+    <h2>2초후 다음 페이지로 이동....</h2>
+</body>
+
+<script>
+    // 지금은 2초 뒤에 바로 enter-information 쪽으로 post 전송 -> 로직 바꿔야 함!! 
+    window.onload = function () {
+        setTimeout(function () {
+            const form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', '/sign-up/retner/enter-information');
+            document.body.appendChild(form);
+            form.submit();
+        }, 2000)
+    };
+</script>
+
+</html>

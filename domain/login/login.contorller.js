@@ -29,6 +29,7 @@ const attemptLogin = function (req, res) {
             else {
                 delete result.patient_password;
                 req.session.user = result;
+                req.session.user_kind = "patient";
                 console.log(req.session);
                 res.redirect('/');
             }
