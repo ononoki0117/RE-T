@@ -1,6 +1,4 @@
-const { patient } = require('../../../common/auth/auth.patient');
-
-const auth_patient = require('../../../common/auth/auth.patient').patient;
+const { user } = require('../../../common/auth/auth.sign-up');
 
 // 회원가입 첫 화면으로 이동
 const redirectToStart = function (req, res) {
@@ -45,18 +43,19 @@ const confirmVerification = function (req, res) {
 // 환자 ID 패스워드 입력 값 검증, 리트너 코드 DB 값 검증, 리트너 보유 환자 배열 안에 환자 추가
 const confirmPrivacyInformation = function (req, res) {
     // model에 값 주입
-    patient.model = req.body;
-    console.log(patient.model);
+    user.model = req.body;
+    user.model.kind = 'patient';
+    console.log(user.model);
 
     // 필드에 값이 빈 경우 찾기
     const isEmpty = (object) => !Object.values(object).every(x => (x !== null && x !== ''));
-    if (isEmpty(patient.model)) {
+    if (isEmpty(user.model)) {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
         res.write("<script>alert('입력값을 전부 채워주세요');  history.go(-1);</script>");
         return;
     }
 
-    if (patient.model.patient_password != req.body.patient_password_repeat) {
+    if (user.model.password != req.body.password_repeat) {
         // Todo : 로직 변경 -> 아마 바로 history 뒤로 가면 안될 거임... 
         // Todo : 문구 변경 
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
@@ -64,9 +63,9 @@ const confirmPrivacyInformation = function (req, res) {
         return;
     }
 
-    delete patient.model.patient_password_repeat;
+    delete user.model.password_repeat;
 
-    patient.register()
+    user.register()
         .then((result) => {
             console.log(`프로미스의 결과값? ${JSON.stringify(result)}`);
             res.render('./sign-up/patient/sign-up.patient.profile.ejs')

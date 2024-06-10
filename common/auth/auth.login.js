@@ -1,5 +1,4 @@
-const USER_PATIENT = process.env.DB_USER_PATIENT;
-const USER_STAFF = process.env.DB_USER_STAFF;
+const USER = process.env.DB_USER;
 const connection = require('../database/database.connect');
 
 const findUserInformation = function (db, id, password) {
@@ -7,13 +6,13 @@ const findUserInformation = function (db, id, password) {
 
         const db = connection.getDB();
 
-        db.collection(USER_PATIENT)
-            .findOne({ patient_login_id: id })
+        db.collection("USER")
+            .findOne({ login_id: id })
             .then((result) => {
                 console.log(result);
                 if (result == null) {
                     resolve("no id");
-                } else if (result.patient_password == password) {
+                } else if (result.password == password) {
                     resolve(result);
                 } else {
                     resolve("not match");
@@ -26,25 +25,4 @@ const findUserInformation = function (db, id, password) {
     })
 };
 
-const findRetnerInformation = function (db, id, password) {
-    return new Promise((resolve, reject) => {
-
-        const db = connection.getDB();
-
-        db.collection(USER_STAFF)
-            .findOne({ staff_login_id: id })
-            .then((result) => {
-                console.log(result);
-
-                if (result.staff_password == password) {
-                    resolve(result);
-                }
-            })
-            .catch((err) => {
-                console.log(err);
-                reject(err);
-            });
-    })
-};
-
-module.exports = { findUserInformation, findRetnerInformation };
+module.exports = { findUserInformation };

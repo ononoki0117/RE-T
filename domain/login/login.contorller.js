@@ -27,9 +27,8 @@ const attemptLogin = function (req, res) {
                 res.write("<script>alert('비밀번호가 올바르지 않습니다');  history.go(-1);</script>");
             }
             else {
-                delete result.patient_password;
+                delete result.password;
                 req.session.user = result;
-                req.session.user_kind = "patient";
                 console.log(req.session);
                 res.redirect('/');
             }
