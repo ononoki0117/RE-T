@@ -1,0 +1,14 @@
+<h5 id="percent_title">오늘 나의 재활운동량</h5>
+<p id="fighting">오늘보다 더 나은 내일을 위해</p>
+<div class="progress_container">
+    <div class="bar">
+        <p id="ret">RE:T</p>
+        <p id="ret_num">
+            <%=data.progress%> %
+        </p>
+    </div>
+    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="<%=data.progress%>"
+        aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" style="width: <%=data.progress%>%"></div>
+    </div>
+</div>

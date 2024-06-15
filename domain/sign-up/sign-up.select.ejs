@@ -2,35 +2,27 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <!-- 모바일을 위해 필요한 meta -->
-    <meta name="viewport"
-        content="width=device-width, initial-scale = 1.0, minimum-scale  = 1.0, maximum-scale = 1.0, user-scalable = no">
-
-    <link rel="stylesheet" href="/style/sign-up/select/globals.css" />
-    <link rel="stylesheet" href="/style/sign-up/select/styleguide.css" />
-    <link rel="stylesheet" href="/style/sign-up/select/style.css" />
+    <%- include('../component/component.head.html') %>
+        <title>RE:T</title>
+        <link rel="stylesheet" href="/style/sign-up/style.css">
 </head>
 
-<body>
-    <div class="screen">
-        <div class="view">
-            <img class="line" src="/img/line-1.svg" />
-            <div class="text-wrapper">
-                <h4 stroke="2">RE:T</h4>
-            </div>
-        </div>
-        <img class="element" src="/img/1.png" />
-        <div>
-            <button class="patient" onclick="location.href='/sign-up/patient'">
-                <img class="vector" src="/img/vector.svg" alt="Vector Icon" />
-                <span class="text-wrapper-2">환자 회원가입</span>
-            </button>
-            <button class="re-tner" onclick="location.href='/sign-up/retner'">
-                <img class="union" src="/img/union.svg" alt="Union Icon" />
-                <span class="text-wrapper-2">리트너 회원가입</span>
-            </button>
-        </div>
+<body class="screen-1">
+    <div>
+        <%- include('../component/component.header.ejs') %>
+    </div>
+
+    <img class="element" src="/img/1.png" />
+
+    <div class="buttons">
+        <button class="patient" onclick="location.href='/sign-up/patient'">
+            <img class="vector" src="/img/vector.svg" alt="Vector Icon" />
+            <span class="text-wrapper-2">환자 회원가입</span>
+        </button>
+        <button class="re-tner" onclick="location.href='/sign-up/retner'">
+            <img class="union" src="/img/union.svg" alt="Union Icon" />
+            <span class="text-wrapper-2">리트너 회원가입</span>
+        </button>
     </div>
 </body>
 

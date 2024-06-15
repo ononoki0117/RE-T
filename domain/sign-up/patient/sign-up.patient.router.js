@@ -29,7 +29,7 @@ router
 router
     .route('/sign-up/patient/profile')
     .get(controller.detectInvalidAccess)
-    .post(controller.confirmPrivacyInformation);
+    .post(controller.confirmProfile);
 
 
 module.exports = router;

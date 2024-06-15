@@ -1,0 +1,313 @@
+* {
+  font-family: "Poppins";
+}
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  background: #fcfcfc;
+  height: 100vh;
+}
+
+.app {
+  margin-top: 1em;
+  display: block;
+  text-align: center;
+  font-size: 16px;
+}
+
+.date {
+  float: left;
+  padding-left: 10px;
+  font-size: 15px;
+}
+
+#gap1 {
+  height: 15px;
+}
+
+.screen-1 {
+  background: #fcfcfc;
+  padding-left: 27px;
+  padding-right: 27px;
+  padding-bottom: 2em;
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 0 0 2em #e6e9f9;
+  max-width: 393px;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 852px;
+  height: 100%;
+}
+
+.screen-1 .week {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+
+}
+
+.screen-1 .today {
+  font-size: 11px;
+  color: #ffffff;
+  border-radius: 10px;
+  border-width: 0px;
+  background-color: #546FFF;
+  width: 34px;
+  height: 55px;
+}
+
+.screen-1 .day {
+  font-size: 11px;
+  border-radius: 10px;
+  border-width: 0.5px;
+  background-color: #fcfcfc;
+  width: 34px;
+  height: 55px;
+}
+
+.screen-1 .ret_percent {
+  background-color: #23262F;
+  border-radius: 20px;
+  height: 128px;
+  position: relative;
+  width: 336px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+}
+
+#percent_title {
+  color: #fcfcfc;
+  margin-top: 24px;
+  font-size: 15px;
+}
+
+#fighting {
+  color: #fcfcfc;
+  font-size: 12px;
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+
+.progress {
+  height: 6px;
+  /* 원하는 높이로 수정 */
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  /* 반지름 값을 조정하여 모서리를 둥글게 만들 수 있습니다. */
+  width: 288px;
+}
+
+.progress-bar {
+  float: center;
+  height: 100%;
+  background-color: #546FFF;
+  border-radius: 10px;
+  /* 반지름 값을 조정하여 모서리를 둥글게 만들 수 있습니다. */
+  width: 296px;
+  margin-bottom: 7px;
+}
+
+#ret {
+  color: #C7D0FF;
+  font-size: 11px;
+}
+
+#ret_num {
+  float: right;
+}
+
+.bar {
+  color: #C7D0FF;
+  font-size: 11px;
+  display: flex;
+  gap: 230px;
+  margin-bottom: -15px;
+}
+
+.select {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.screen-1 .today_ret {
+  font-size: 11px;
+  color: #ffffff;
+  border-radius: 10px;
+  border-width: 0px;
+  background-color: #546FFF;
+  width: 90px;
+  height: 28px;
+}
+
+.screen-1 .today_un {
+  font-size: 11px;
+  border-radius: 10px;
+  border-width: 0.5px;
+  background-color: #fcfcfc;
+  width: 90px;
+  height: 28px;
+}
+
+.screen-1 .select {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+#today_ret {
+  color: #23262F;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+
+.complete {
+  background-color: #24BB4E;
+  color: #ffffff;
+  font-size: 11px;
+  border-radius: 10px;
+  width: 60px;
+  height: 17px;
+  border-width: 0px;
+  float: right;
+  margin-bottom: 9px;
+}
+
+.uncomplete {
+  background-color: #E7E7E7;
+  color: #1B1E0F;
+  font-size: 11px;
+  border-radius: 10px;
+  width: 60px;
+  height: 17px;
+  border-width: 0px;
+  float: right;
+  margin-bottom: 9px;
+}
+
+
+.heart {
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.heart_gauge {
+  margin-top: 0px;
+  height: 24px;
+  /* 원하는 높이로 수정 */
+  background-color: #fcfcfc;
+  border-radius: 20px;
+  /* 반지름 값을 조정하여 모서리를 둥글게 만들 수 있습니다. */
+  width: 339px;
+  border: 0.5px solid rgba(0, 0, 0, 0.4);
+  /* 0.5px 테두리 추가 */
+  display: flex;
+  /* 새로운 속성 추가 */
+  justify-content: space-between;
+  /* 새로운 속성 추가 */
+  padding-left: 2.4px;
+  /* 새로운 속성 추가 */
+  box-sizing: border-box;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.heart_bar {
+  float: center;
+  height: 80%;
+  background-color: #546FFF;
+  border-radius: 20px;
+  /* 반지름 값을 조정하여 모서리를 둥글게 만들 수 있습니다. */
+  width: 339px;
+  margin-top: 2.4px;
+}
+
+.todo {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.my_work {
+  width: 113px;
+  height: 23px;
+  border-radius: 15px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-color: rgba(0, 0, 0, 0.4);
+  vertical-align: middle;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 6px;
+  padding-top: 6px;
+}
+
+.my_work_font {
+  margin: -3.5px 0 0 6px;
+  font-size: 11px;
+  font-weight: lighter;
+  color: #23262F;
+}
+
+.com {
+  border-radius: 10px;
+  background-color: #24BB4E;
+  margin: 2px 10x 0 0px;
+  width: 10px;
+  height: 10px;
+  float: right;
+}
+
+.uncom {
+  border-radius: 10px;
+  background-color: #D5D1D1;
+  margin: 2px 10x 0 0px;
+  width: 10px;
+  height: 10px;
+  float: right;
+}
+
+.diary {
+  width: 339px;
+  height: 120px;
+  border-radius: 10px;
+  border-width: 0.5px;
+  border-color: rgba(0, 0, 0, 0.4);
+  font-size: 12px;
+  color: rgba(35, 38, 47, 0.5);
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: start;
+}
+
+.screen-1 .login {
+  margin-top: 10px;
+  background: #E7E7E7;
+  color: #23262F;
+  border: none;
+  border-radius: 30px;
+  font-weight: 100;
+  font-size: 18px;
+  width: 181px;
+  height: 40px;
+  text-align: center;
+  margin-left: auto;
+  /* 새로운 속성 추가 */
+  margin-right: auto;
+  /* 새로운 속성 추가 */
+  display: block;
+}

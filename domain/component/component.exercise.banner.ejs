@@ -1,0 +1,23 @@
+<div class="ex_explain">
+    <h5 class="exercise_name"></h5>
+    <%= exercise.name %>
+        </h5>
+        <p class="exercise_caption">
+            <%= exercise.caption %>
+        </p>
+</div>
+<div class="check">
+    <div>
+        <% if (exercise.complete) { %>
+            <button type="button" class="complete">완료</button>
+            <% } else {%>
+                <button type="button" class="uncomplete">미완료</button>
+                <% } %>
+    </div>
+
+    <button type="button" class="explain" onclick="location.href = '/exercise/explain/<%exercise.id%>'">
+        <ins>
+            운동 설명 보러가기
+        </ins>
+    </button>
+</div>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../../component/component.head.html") %>
+        <title>RE:T main</title>
+
+        <link rel="stylesheet" href="/style/main/style.css">
+
+</head>
+
+<body class="screen-1">
+    <div>
+        <%- include('../../component/component.header.ejs') %>
+    </div>
+
+    <div>
+        <%- include('../../component/component.callender.string.ejs')%>
+    </div>
+
+    <div>
+        <%- include('../../component/component.callender.weekly.ejs') %>
+    </div>
+
+    <br>
+
+    <div class="ret_percent">
+        <%- include('../../component/component.exercise.progress.ejs') %>
+    </div>
+
+    <div class="select">
+        <%- include('../../component/component.main.select.ejs', {select : 3}) %>
+    </div>
+
+    <h5 id="today_ret">나의 의료진</h5>
+
+    <div class="exercise">
+        <div class="circle">
+            <div class="circle2">
+                <img id="imagePreview">
+            </div>
+        </div>
+
+        <div id="gap3"></div>
+
+        <div class="ex_explain">
+            <h5 class="exercise_name">서울 믿음소망 정형외과</h5>
+            <p class="exercise_caption">이용섭 전문의</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h5 id="today_ret">나의 진료내역</h5>
+
+    <div class="record">
+        <div class="record-left">
+            <li>2024 - 09 - 05</li>
+            <br>
+            <li>2024 - 09 - 08</li>
+        </div>
+        <div class="record-right">
+            <p>발목 부상</p>
+            <br>
+            <p>발목 부상</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

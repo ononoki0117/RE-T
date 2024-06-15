@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../../component/component.head.html") %>
+        <title>RE:T main</title>
+
+        <link rel="stylesheet" href="/style/main/style.css">
+
+</head>
+
+<body class="screen-1">
+
+    <div>
+        <%- include('../../component/component.header.ejs') %>
+    </div>
+
+    <div>
+        <%- include('../../component/component.callender.string.ejs')%>
+    </div>
+
+    <div>
+        <%- include('../../component/component.callender.weekly.ejs') %>
+    </div>
+
+    <br>
+
+    <div class="ret_percent">
+        <%- include('../../component/component.exercise.progress.ejs') %>
+    </div>
+
+    <div class="select">
+        <%- include('../../component/component.main.select.ejs', {select : 2}) %>
+    </div>
+
+    <h5 id="today_ret">오늘의 재활일기</h5>
+
+    <p class="heart">통증정도</p>
+    <div class="heart_gauge" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0"
+        aria-valuemax="100">
+        <div class="heart_bar" style="width: 25%"></div>
+    </div>
+
+    <p class="heart">재활운동 TODO LIST</p>
+    <div class="todo">
+        <% data.exercises.forEach(exercise=> { %>
+            <div class="my_work">
+                <p class="my_work_font">
+                    <%=exercise.name%>
+                </p>
+                <% if (exercise.complete) { %>
+                    <div class="com"></div>
+                    <% } else { %>
+                        <div class="uncom"></div>
+                        <% } %>
+            </div>
+            <% }) %>
+    </div>
+
+    <p class="heart">기록하기</p>
+    <form method="post" action="/patient/diary">
+        <input class="diary" type="text" value="재활운동 후 느낀점 및 구체적 통증을 기록해주세요 |">
+
+        <button class="login">저장하기 </button>
+    </form>
+
+</body>
+
+</html>

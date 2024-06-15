@@ -1,0 +1,13 @@
+<% if (select==1) { %>
+    <button type="button" class="today_ret" onclick="location.href='/patient/main'">오늘의 재활</button>
+    <button type="button" class="today_un" onclick="location.href='/patient/diary'">재활일기</button>
+    <button type="button" class="today_un" onclick="location.href='/patient/history'">진료내역</button>
+    <% } else if (select==2) { %>
+        <button type="button" class="today_un" onclick="location.href='/patient/main'">오늘의 재활</button>
+        <button type="button" class="today_ret" onclick="location.href='/patient/diary'">재활일기</button>
+        <button type="button" class="today_un" onclick="location.href='/patient/history'">진료내역</button>
+        <% } else { %>
+            <button type="button" class="today_un" onclick="location.href='/patient/main'">오늘의 재활</button>
+            <button type="button" class="today_un" onclick="location.href='/patient/diary'">재활일기</button>
+            <button type="button" class="today_ret" onclick="location.href='/patient/history'">진료내역</button>
+            <%} %>

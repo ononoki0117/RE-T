@@ -1,0 +1,118 @@
+* {
+    font-family: "Poppins";
+}
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    justify-content: flex-start;
+    background: #fcfcfc;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 852px;
+}
+
+.app {
+    margin-top: 1em;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+}
+
+.screen-1 {
+    background: #fcfcfc;
+    padding-left: 27px;
+    padding-right: 27px;
+    padding-bottom: 2em;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    box-shadow: 0 0 2em #e6e9f9;
+    max-width: 393px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.screen-1 .element {
+    position: relative;
+    width: 135px;
+    height: 135px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+
+}
+
+.screen-1 .buttons {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.screen-1 .patient,
+.screen-1 .re-tner {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 139px;
+    height: 189px;
+    gap: 30px;
+    padding: 50px 22px 18px;
+    position: relative;
+    border-radius: 10px;
+    border: 0.5px solid;
+    border-color: #000000;
+    background-color: #fcfcfc;
+}
+
+
+.screen-1 .vector,
+.screen-1 .union {
+    position: relative;
+    width: 52px;
+    height: 65px;
+}
+
+.screen-1 .text-wrapper-2 {
+    width: 102px;
+    position: relative;
+    height: 23px;
+    font-family: "Inter", Helvetica;
+    font-weight: 200;
+    color: #546fff;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+button:focus-visible {
+    outline: 2px solid #4a90e2 !important;
+    outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+.screen-1 .confirm {
+    padding: 1em;
+    background: #546FFF;
+    color: #fcfcfc;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    /* 버튼을 아래로 내림 */
+}
+
+.screen-1 .agree_group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
