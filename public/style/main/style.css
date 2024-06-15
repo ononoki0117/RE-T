@@ -116,21 +116,15 @@ body {
 }
 
 .progress {
-    height: 6px;
     /* 원하는 높이로 수정 */
     background-color: #f5f5f5;
-    border-radius: 10px;
     /* 반지름 값을 조정하여 모서리를 둥글게 만들 수 있습니다. */
-    width: 288px;
 }
 
 .progress-bar {
     float: center;
-    height: 100%;
     background-color: #546FFF;
-    border-radius: 10px;
     /* 반지름 값을 조정하여 모서리를 둥글게 만들 수 있습니다. */
-    width: 296px;
 }
 
 #ret {
@@ -457,4 +451,58 @@ body {
     margin-right: auto;
     /* 새로운 속성 추가 */
     display: block;
+}
+
+.screen-1 .profile_holder {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.profile_emphasis {
+    font-weight: 800;
+}
+
+.profile_caption {
+    color: blue;
+    font-weight: 350;
+    font-size: 11px;
+    margin-bottom: 0px;
+}
+
+.callender {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.callender_table {
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.callender_head {
+    font-weight: 100;
+}
+
+.callender_data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    width: 47px;
+    text-align: center;
+    height: 60px;
+}
+
+.callender_date {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 300;
+}
+
+#day_progress {
+    width: 47px;
+    height: 5px;
 }

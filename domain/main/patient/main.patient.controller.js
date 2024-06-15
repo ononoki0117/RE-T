@@ -67,4 +67,8 @@ const getPatientHistory = function (req, res) {
     })
 }
 
-module.exports = { getPatientMainPage, getPatientDiary, getPatientHistory };
+const getPatientCallender = function (req, res) {
+    res.render('./main/patient/main.patient.callender.ejs')
+}
+
+module.exports = { getPatientMainPage, getPatientDiary, getPatientHistory, getPatientCallender };

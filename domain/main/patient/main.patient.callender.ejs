@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../../component/component.head.html") %>
+        <title>RE:T main</title>
+
+        <link rel="stylesheet" href="/style/main/style.css">
+
+</head>
+
+<body class="screen-1">
+    <div>
+        <%- include('../../component/component.header.ejs') %>
+    </div>
+
+    <div id="gap2"></div>
+
+    <div class="profile_holder">
+        <div class="circle">
+            <div class="circle2">
+                <img id="imagePreview">
+            </div>
+        </div>
+
+        <div id="gap3"></div>
+
+        <div class="ex_explain">
+            <h5 class="exercise_name"><span class="profile_emphasis">채승룡</span>님!</h5>
+            <p class="profile_caption">오늘 병원 <span>방문일</span> 입니다!</p>
+        </div>
+    </div>
+
+    <div id="gap2"></div>
+
+    <div class="callender">
+        <table class="callender_table">
+            <thead class="callender_head">
+                <tr>
+                    <td class="callener_data" style="color: red;">SUN</td>
+                    <td class="callener_data">MON</td>
+                    <td class="callener_data">TUE</td>
+                    <td class="callener_data">WEB</td>
+                    <td class="callener_data">THU</td>
+                    <td class="callener_data">FRI</td>
+                    <td class="callener_data">SAT</td>
+                </tr>
+            </thead>
+
+            <tbody class="callender_body">
+                <tr>
+                    <td>
+                        <div class="callender_data">
+                            <h6 class="callender_date">1</h6>
+                            <div class="progress" id="day_progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <p class="day_explain"></p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="callender_data">
+                            <h6 class="callender_date">2</h6>
+                            <div class="progress" id="day_progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <p class="day_explain"></p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="callender_data">
+                            <h6 class="callender_date">3</h6>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <p class="day_explain"></p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="callender_data">
+                            <h6 class="callender_date">4</h6>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <p class="day_explain"></p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="callender_data">
+                            <h6 class="callender_date">5</h6>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <p class="day_explain"></p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="callender_data">
+                            <h6 class="callender_date">6</h6>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <p class="day_explain"></p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="callender_data">
+                            <h6 class="callender_date">7</h6>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                            </div>
+                            <p class="day_explain"></p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</body>
+
+</html>
