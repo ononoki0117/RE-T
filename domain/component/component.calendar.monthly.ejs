@@ -1,0 +1,58 @@
+<div class="calendar">
+    <table class="calendar_table">
+        <thead class="calendar_head">
+            <tr>
+                <td class="" style="color: red;">SUN</td>
+                <td class="">MON</td>
+                <td class="">TUE</td>
+                <td class="">WEB</td>
+                <td class="">THU</td>
+                <td class="">FRI</td>
+                <td class="">SAT</td>
+            </tr>
+        </thead>
+
+        <tbody class="calendar_body">
+            <% calendar.forEach(week=> { %>
+                <tr>
+                    <% week.forEach(day=> { %>
+                        <td>
+                            <div class="calendar_data">
+                                <% if (day !=null) { %>
+                                    <% if (day.today!=null) { %>
+                                        <!--이거 임시로 넣은거임! 바꿀거임!-->
+                                        <div class=circle2>
+                                            <h6 class="calendar_date">
+                                                <%= day.day %>
+                                            </h6>
+                                        </div>
+
+                                        <% } else { %>
+                                            <h6 class="calendar_date">
+                                                <%= day.day %>
+                                            </h6>
+                                            <% } %>
+
+                                                <% if (day.progress !=null) { %>
+                                                    <div class="progress" id="day_progress" role="progressbar"
+                                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                                        <div class="progress-bar" id="inner_progress"
+                                                            style="width: 50%;"></div>
+                                                    </div>
+                                                    <% } %>
+
+                                                        <% if (day.explain !=null) { %>
+                                                            <p class="day_explain" id="day_explain_red">병원 진료일</p>
+
+                                                            <% } %>
+                                                                <% } %>
+
+                            </div>
+                        </td>
+                        <% }) %>
+                </tr>
+                <% }) %>
+        </tbody>
+
+    </table>
+</div>

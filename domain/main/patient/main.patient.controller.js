@@ -67,8 +67,27 @@ const getPatientHistory = function (req, res) {
     })
 }
 
-const getPatientCallender = function (req, res) {
-    res.render('./main/patient/main.patient.callender.ejs')
+const getPatientcalendar = function (req, res) {
+    const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+
+    const calendarControl = require('../../component/component.calendar.controller')
+
+    const calendar = calendarControl.getMonthlycalendar(currentYear, currentMonth);
+
+    calendar.forEach(week => {
+        week.forEach(day => {
+            if (day.day == currentDate.getDate()) {
+                day.today = true;
+            }
+
+        });
+    });
+
+    console.log(calendar);
+
+    res.render('./main/patient/main.patient.calendar.ejs', { calendar });
 }
 
-module.exports = { getPatientMainPage, getPatientDiary, getPatientHistory, getPatientCallender };
+module.exports = { getPatientMainPage, getPatientDiary, getPatientHistory, getPatientcalendar };

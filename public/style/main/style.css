@@ -60,7 +60,7 @@ body {
     box-sizing: border-box;
 }
 
-.screen-1 .callender_header {
+.screen-1 .calendar_header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -122,7 +122,7 @@ body {
 }
 
 .progress-bar {
-    float: center;
+    /* float: center; */
     background-color: #546FFF;
     /* 반지름 값을 조정하여 모서리를 둥글게 만들 수 있습니다. */
 }
@@ -470,34 +470,34 @@ body {
     margin-bottom: 0px;
 }
 
-.callender {
+.calendar {
     display: flex;
     flex-direction: column;
 
 }
 
-.callender_table {
+.calendar_table {
     width: 100%;
     text-align: center;
     vertical-align: middle;
 }
 
-.callender_head {
+.calendar_head {
     font-weight: 100;
 }
 
-.callender_data {
+.calendar_data {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
     width: 47px;
     text-align: center;
-    height: 60px;
+    height: 70px;
 }
 
-.callender_date {
-    margin-top: 10px;
+.calendar_date {
+    margin-top: 5px;
     text-align: center;
     font-weight: 300;
 }
@@ -505,4 +505,17 @@ body {
 #day_progress {
     width: 47px;
     height: 5px;
+}
+
+#inner_progress {
+    border-radius: 2px;
+}
+
+.day_explain {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+#day_explain_red {
+    color: #FA6161;
 }

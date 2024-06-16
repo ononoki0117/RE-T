@@ -10,7 +10,7 @@ router.route('/patient/diary')
 router.route('/patient/history')
     .get(controller.getPatientHistory);
 
-router.route('/patient/callender')
-    .get(controller.getPatientCallender);
+router.route('/patient/calendar')
+    .get(controller.getPatientcalendar);
 
 module.exports = router;
