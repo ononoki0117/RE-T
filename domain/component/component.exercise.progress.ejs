@@ -13,3 +13,28 @@
         <div class="progress-bar" style="width: <%=data.progress%>% ;border-radius: 10px;"></div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const progressBar = document.querySelector('.progress-bar');
+        const progressNum = document.getElementById('ret_num');
+        const targetProgress = <%=data.progress%>; // 데이터로 받은 목표 진행률 설정
+
+        progressBar.style.width = '0%'; // 초기 너비를 0%로 설정
+
+        function animateProgressBar() {
+            let currentProgress = 0;
+            const interval = setInterval(function () {
+                currentProgress++;
+                progressBar.style.width = currentProgress + '%';
+                progressNum.textContent = currentProgress + ' %';
+
+                if (currentProgress >= targetProgress) {
+                    clearInterval(interval); // 목표에 도달하면 애니메이션 중지
+                }
+            }, 35); // 애니메이션 속도를 조절할 수 있는 간격 (ms)
+        }
+
+        animateProgressBar(); // 애니메이션 시작
+    });
+</script>

@@ -74,8 +74,6 @@
                 const gaugeRect = heartGauge.getBoundingClientRect();
                 let newWidth = (event.clientX - gaugeRect.left) / gaugeRect.width * 100;
 
-                // 10단계로 분할
-                newWidth = Math.round(newWidth / 10) * 10;
 
                 if (newWidth < 0) newWidth = 0;
                 if (newWidth > 100) newWidth = 100;
