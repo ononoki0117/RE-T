@@ -14,28 +14,28 @@
         <%- include('../../component/component.header.ejs') %>
     </div>
 
-    <h3>약관동의</h3>
+    <h3 id="agree_title">약관동의</h3>
 
     <form method="post" action="/sign-up/patient/verification">
         <div class="checkbox_group">
             <div class="agree_group">
                 <label for="check_all"><b>전체 동의합니다</b></label>
-                <input type="checkbox" id="check_all" name="check_all" onclick="selectAll(this)">
+                <input type="checkbox" id="check_all" name="check_all" onclick="selectAll(this)" class="checkbox_class">
 
             </div>
             <div class="agree_group">
                 <label for="check_1">만 14세 이상입니다 (필수)</label>
-                <input type="checkbox" id="check_1" name="check_1">
+                <input type="checkbox" id="check_1" name="check_1" class="checkbox_class">
 
             </div>
             <div class="agree_group">
                 <label for="check_2">서비스 이용약관 동의 (필수)</label>
-                <input type="checkbox" id="check_2" name="check_2">
+                <input type="checkbox" id="check_2" name="check_2" class="checkbox_class">
 
             </div>
             <div class="agree_group">
                 <label for="check_3">개인정보 수집 및 이용 동의 (필수)</label>
-                <input type="checkbox" id="check_3" name="check_3">
+                <input type="checkbox" id="check_3" name="check_3" class="checkbox_class">
 
             </div>
         </div>

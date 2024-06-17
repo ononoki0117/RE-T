@@ -116,3 +116,11 @@ button:focus-visible {
     justify-content: space-between;
     margin-top: 20px;
 }
+
+.checkbox_class{
+    zoom:1.5;
+}
+
+#agree_title{
+    font-weight : 600;
+}
