@@ -1,10 +1,71 @@
-<div id="gap1"></div>
-<div class="week">
-    <button type="button" class="today">8<br />ㅡ<br />SUN</button>
-    <button type="button" class="day">9<br />ㅡ<br />MON</button>
-    <button type="button" class="day">10<br />ㅡ<br />TUE</button>
-    <button type="button" class="day">11<br />ㅡ<br />WED</button>
-    <button type="button" class="day">12<br />ㅡ<br />THU</button>
-    <button type="button" class="day">13<br />ㅡ<br />FRI</button>
-    <button type="button" class="day">14<br />ㅡ<br />SAT</button>
+<div class="calendar_header">
+    <h5 stroke="2" class="date" id="calendar_string">
+    </h5>
+    <div id="gap4">
+        <!--이 부분 아이콘으로 대체 부탁-->
+    </div>
 </div>
+
+<div id="gap1"></div>
+
+<div class="week">
+    <button type="button" id="0" class="today">8<br />ㅡ<br />SUN</button>
+    <button type="button" id="1" class="day">9<br />ㅡ<br />MON</button>
+    <button type="button" id="2" class="day">10<br />ㅡ<br />TUE</button>
+    <button type="button" id="3" class="day">11<br />ㅡ<br />WED</button>
+    <button type="button" id="4" class="day">12<br />ㅡ<br />THU</button>
+    <button type="button" id="5" class="day">13<br />ㅡ<br />FRI</button>
+    <button type="button" id="6" class="day">14<br />ㅡ<br />SAT</button>
+</div>
+
+<script>
+    const makeDateString = function (dayNum) {
+        switch (dayNum % 7) {
+            case (0):
+                return "SUN";
+                break;
+            case (1):
+                return "MON";
+                break;
+            case (2):
+                return "TUE";
+                break;
+            case (3):
+                return "WED";
+                break;
+            case (4):
+                return "THU";
+                break;
+            case (5):
+                return "FRI";
+                break;
+            case (6):
+                return "SAT";
+                break;
+        }
+    }
+
+    window.onload = function () {
+        const currentDate = new Date();
+
+        const changeState = function (i) {
+            return function () {
+                var target = document.getElementById(i);
+
+                alert(i);
+            }
+        }
+
+        for (var i = 0; i < 7; i++) {
+            var target = document.getElementById(i);
+
+            console.log(target);
+            target.innerHTML = currentDate.getDate() + i + "<br />ㅡ<br />" + makeDateString(currentDate.getDay() + i);
+
+            target.addEventListener('click', changeState(i));
+        }
+    }
+
+
+
+</script>
