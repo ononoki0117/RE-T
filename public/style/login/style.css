@@ -131,7 +131,10 @@ body {
   font-weight: 600;
   margin-bottom: 46px;
   position: relative;
-
+  margin: 0 auto 46px auto;
+  display: block;
+  padding-left : 100px;
+  padding-right : 100px;
 }
 
 .footer {
