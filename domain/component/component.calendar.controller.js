@@ -17,12 +17,4 @@ const getMonthlycalendar = function (year, month) {
     return weeks;
 }
 
-const getStringcalendar = function () {
-
-}
-
-const getWeeklycalendar = function () {
-
-}
-
-module.exports = { getMonthlycalendar, getStringcalendar, getWeeklycalendar };
+module.exports = { getMonthlycalendar };

@@ -74,15 +74,7 @@ body {
 
 }
 
-.screen-1 .today {
-    font-size: 11px;
-    color: #ffffff;
-    border-radius: 10px;
-    border-width: 0px;
-    background-color: #546FFF;
-    width: 34px;
-    height: 55px;
-}
+
 
 .screen-1 .day {
     font-size: 11px;
@@ -91,6 +83,19 @@ body {
     background-color: #fcfcfc;
     width: 34px;
     height: 55px;
+}
+
+.screen-1 .today {
+    color: #ffffff;
+    border-width: 0px;
+    background-color: #BBC6FE;
+}
+
+.screen-1 .selected {
+    color: #ffffff;
+    border-width: 0px;
+    background-color: #546FFF;
+
 }
 
 .screen-1 .ret_percent {
