@@ -22,14 +22,14 @@ router
 
 // 회원정보를 db에 넘긴 후 profile화면으로 넘어갈거임 
 router
-    .route('/sign-up/retner/complete')
+    .route('/sign-up/retner/profile')
     .get(controller.detectInvalidAccess)
     .post(controller.confirmPrivacyInformation);
 
 router
-    .route('/sign-up/retner/profile')
+    .route('/sign-up/retner/complete')
     .get(controller.detectInvalidAccess)
-    .post(controller.confirmPrivacyInformation);
+    .post(controller.confirmProfile);
 
 
 module.exports = router;

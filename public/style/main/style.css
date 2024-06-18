@@ -74,15 +74,7 @@ body {
 
 }
 
-.screen-1 .today {
-    font-size: 11px;
-    color: #ffffff;
-    border-radius: 10px;
-    border-width: 0px;
-    background-color: #546FFF;
-    width: 34px;
-    height: 55px;
-}
+
 
 .screen-1 .day {
     font-size: 11px;
@@ -91,6 +83,19 @@ body {
     background-color: #fcfcfc;
     width: 34px;
     height: 55px;
+}
+
+.screen-1 .today {
+    color: #ffffff;
+    border-width: 0px;
+    background-color: #BBC6FE;
+}
+
+.screen-1 .selected {
+    color: #ffffff;
+    border-width: 0px;
+    background-color: #546FFF;
+
 }
 
 .screen-1 .ret_percent {
@@ -124,7 +129,17 @@ body {
 .progress-bar {
     /* float: center; */
     background-color: #546FFF;
-    /* 반지름 값을 조정하여 모서리를 둥글게 만들 수 있습니다. */
+    animation: progressAnimation 1.2s ease-in-out forwards;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: <%=data.progress%>%;
+    }
 }
 
 #ret {

@@ -15,11 +15,7 @@
     </div>
 
     <div>
-        <%- include('../../component/component.calendar.string.ejs')%>
-    </div>
-
-    <div>
-        <%- include('../../component/component.calendar.weekly.ejs') %>
+        <%- include('../../component/component.calendar.weekly.ejs', {date: data.date}) %>
     </div>
 
     <br>
@@ -65,6 +61,48 @@
         <div id="gap2"></div>
 
         <% } %>
+
+            <script>
+                const changeSelectedDay = function (i) {
+                    return function () {
+                        var targetDate = new Date();
+
+                        targetDate.setDate(currentDate.getDate() + i);
+
+                        calendarString.innerHTML = getMonthName(targetDate.getMonth()) + " " + targetDate.getDate()
+
+                        var target = document.getElementById(i);
+                        var formerTargets = document.getElementsByClassName('selected');
+
+                        while (formerTargets.length > 0) {
+                            formerTargets[0].classList.remove('selected');
+                        }
+
+                        target.classList.add('selected');
+                        const today_ret = document.getElementById('today_ret');
+                        if (target.classList.contains('today')) {
+                            today_ret.innerHTML = '오늘 나의 재활';
+
+                        }
+                        else {
+                            today_ret.innerHTML = '예정된 나의 재활';
+
+                        }
+
+
+                    }
+                }
+
+                window.onload = function () {
+                    for (var i = 0; i < 7; i++) {
+                        var target = document.getElementById(i);
+
+                        target.innerHTML = currentDate.getDate() + i + "<br />ㅡ<br />" + getDateName(currentDate.getDay() + i);
+
+                        target.addEventListener('click', changeSelectedDay(i));
+                    }
+                }
+            </script>
 
 </body>
 

@@ -68,7 +68,7 @@ const confirmPrivacyInformation = function (req, res) {
     user.register()
         .then((result) => {
             console.log(`프로미스의 결과값? ${JSON.stringify(result)}`);
-            res.render('./sign-up/retner/sign-up.retner.profile.ejs')
+            res.render('./sign-up/retner/sign-up.retner.info.ejs')
         })
         .catch((result) => {
             console.log(`망한 프로미스의 결과값? ${JSON.stringify(result)}`)
@@ -79,9 +79,9 @@ const confirmPrivacyInformation = function (req, res) {
 
 // 환자 프로필 사진 서버에 저장 후 회원가입 완료 절차
 const confirmProfile = function (req, res) {
-    console.log('환자 사진 등록 완료, 홈 화면으로 이동');
+    console.log('리트너 정보 등록 완료, 홈 화면으로 이동');
 
-    res.send('가입 완료! 홈 화면이 될 화면!!');
+    res.redirect('/');
 }
 
 // agree를 건너뛰고 다른 페이지부터 접근하면(get방식으로 접근하면), 혹은 세션에 있는 값이 잘못되면 호출됨

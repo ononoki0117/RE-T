@@ -1,10 +1,54 @@
-<div id="gap1"></div>
-<div class="week">
-    <button type="button" class="today">8<br />ㅡ<br />SUN</button>
-    <button type="button" class="day">9<br />ㅡ<br />MON</button>
-    <button type="button" class="day">10<br />ㅡ<br />TUE</button>
-    <button type="button" class="day">11<br />ㅡ<br />WED</button>
-    <button type="button" class="day">12<br />ㅡ<br />THU</button>
-    <button type="button" class="day">13<br />ㅡ<br />FRI</button>
-    <button type="button" class="day">14<br />ㅡ<br />SAT</button>
+<div class="calendar_header">
+    <h5 stroke="2" class="date" id="calendar_string">
+    </h5>
+    <ion-icon name="calendar-outline" onclick="location.href='./calendar'"></ion-icon>
 </div>
+
+<div id="gap1"></div>
+
+<div class="week">
+    <button type="button" id="0" class="day today">8<br />ㅡ<br />SUN</button>
+    <button type="button" id="1" class="day">9<br />ㅡ<br />MON</button>
+    <button type="button" id="2" class="day">10<br />ㅡ<br />TUE</button>
+    <button type="button" id="3" class="day">11<br />ㅡ<br />WED</button>
+    <button type="button" id="4" class="day">12<br />ㅡ<br />THU</button>
+    <button type="button" id="5" class="day">13<br />ㅡ<br />FRI</button>
+    <button type="button" id="6" class="day">14<br />ㅡ<br />SAT</button>
+</div>
+
+<script>
+    var currentDate = new Date();
+
+    var today = document.getElementById(0);
+    today.classList.add('selected');
+
+    var calendarString = document.getElementById('calendar_string');
+    calendarString.innerHTML = getMonthName(currentDate.getMonth()) + " " + currentDate.getDate()
+
+    const getDateName = function (day) {
+        const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+        return dayNames[day % 7];
+    };
+
+    function getMonthName(monthIndex) {
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        if (monthIndex < 0 || monthIndex > 11) {
+            return "Invalid month index";
+        }
+
+        return monthNames[monthIndex];
+    }
+
+    for (var i = 0; i < 7; i++) {
+        var target = document.getElementById(i);
+
+        console.log(target);
+        target.innerHTML = currentDate.getDate() + i + "<br />ㅡ<br />" + getDateName(currentDate.getDay() + i);
+    }
+
+
+</script>

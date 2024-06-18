@@ -1,8 +1,12 @@
+const currentDate = new Date();
+const currentMonth = currentDate.getMonth();
+const currentYear = currentDate.getFullYear();
+
 const getPatientMainPage = function (req, res) {
     res.render('./main/patient/main.patient.ejs', {
         data:
         {
-            date: { string: "September 4" },
+            date: currentDate,
             progress: 35,
             exercises: [
                 {
@@ -68,10 +72,6 @@ const getPatientHistory = function (req, res) {
 }
 
 const getPatientcalendar = function (req, res) {
-    const currentDate = new Date();
-    const currentMonth = currentDate.getMonth();
-    const currentYear = currentDate.getFullYear();
-
     const calendarControl = require('../../component/component.calendar.controller')
 
     const calendar = calendarControl.getMonthlycalendar(currentYear, currentMonth);
