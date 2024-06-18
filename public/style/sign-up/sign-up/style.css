@@ -65,7 +65,7 @@ img.logo {
 
 .screen-1 .name,
 .screen-1 .password,
-.screen-1 .doctor {
+.screen-1 .doctor{
   flex: 1;
   background: #f1f1f1;
   padding: 1em;
@@ -165,8 +165,12 @@ img.logo {
   border: none;
   border-radius: 30px;
   font-weight: 600;
-  float: bottom;
-
+  margin-bottom: 46px;
+  position: relative;
+  display: block;
+  padding-left : 100px;
+  padding-right : 100px;
+  margin: 46px auto 0 auto;
 }
 
 .screen-1 .footer {
@@ -188,4 +192,56 @@ img.logo {
 button {
   cursor: pointer;
   margin-top: 0.5em;
+}
+
+#phone_number,
+.birth{
+  background: #f1f1f1;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  color: #4d4d4d;
+  height: 2.5em;
+  gap : 0px;
+}
+
+#phone_agency{
+  font-size: 0.9em;
+  background-color: #E4E4E4;
+  color : rgba(0, 0, 0, 0.5);
+  border-radius : 5px;
+  border : 0px;
+}
+.phone_num,
+.birth_input{
+  padding : 0;
+  margin : 0;
+  font-size: 0.9em;
+  border-width : 0 0 1px;
+  width:70px;
+  border-bottom : 1px solid #000;
+}
+
+.birth_label{
+  margin-bottom : 0px;
+}
+
+#birth_table, #phone_tab {
+  display: inline-table;
+  border-collapse: collapse;
+}
+
+#birth_table td, #phone_tab td {
+  padding: 0;
+}
+
+.dash::before {
+  content: "-";
+  font-size: 16px;
+}
+
+.resident-num::before {
+  content: "000000";
+  font-size: 16px;
 }
