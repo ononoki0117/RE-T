@@ -1,0 +1,13 @@
+<% if (select==1) { %>
+    <button type="button" class="ret_patient" onclick="location.href='/patient/main'">회원 목록</button>
+    <button type="button" class="ret_calendar" onclick="location.href='/patient/diary'">예약캘린더</button>
+    <button type="button" class="ret_chatlist" onclick="location.href='/patient/history'">채팅 목록</button>
+    <% } else if (select==2) { %>
+        <button type="button" class="ret_patient" onclick="location.href='/patient/main'">회원 목록</button>
+        <button type="button" class="ret_calendar" onclick="location.href='/patient/diary'">예약캘린더</button>
+        <button type="button" class="ret_chatlist" onclick="location.href='/patient/history'">채팅 목록</button>
+        <% } else { %>
+            <button type="button" class="ret_patient" onclick="location.href='/patient/main'">회원 목록</button>
+            <button type="button" class="ret_calendar" onclick="location.href='/patient/diary'">예약캘린더</button>
+            <button type="button" class="ret_chatlist" onclick="location.href='/patient/history'">채팅 목록</button>
+            <%} %>
