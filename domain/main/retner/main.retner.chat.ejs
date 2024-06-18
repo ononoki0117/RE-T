@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../../component/component.head.html") %>
+        <title>RE:T main</title>
+
+        <link rel="stylesheet" href="/style/RET_chat/style.css">
+</head>
+<body>
+    <div class="screen-1">
+        <h4 stroke = "2" class = "app">RE:T</h4>
+        <hr stroke = "1" class = "line">
+        <h5 stroke = "2" class = "date">SEPTEMBER 8</h5>
+        <div id = "ret_gap"></div>
+
+        <div class = "retner">
+            <h5 id = "ret_title">안녕하세요 이용섭님!</h5>
+            <hr id = "ret_line">
+            <p id = "code">나의 리트너 코드 : A7S8DF</p>
+            
+            <div class = "message">
+                <p class = "today_medi">오늘의 진료 : 3건</p>
+                <p class = "today_chat">새로운 채팅 : 2건</p>
+            </div>
+        </div>
+
+        <div class="list">
+            <button type="button" class="list_un">예약내역</button>
+            <button type="button" class="list_un">예약캘린더</button>
+            <button type="button" class="list_sel">채팅목록</button>
+        </div>
+        <div>
+            <h5 id = "chat_member_list">최근 채팅 목록</h5>
+            <div id = "gap2"></div>
+            <button id = "chat_all">전체보기</button>
+        </div>
+    </div>
+</body>
+</html>
