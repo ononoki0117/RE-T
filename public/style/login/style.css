@@ -2,6 +2,17 @@
   font-family: "Poppins";
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 body {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -133,8 +144,8 @@ body {
   position: relative;
   margin: 0 auto 46px auto;
   display: block;
-  padding-left : 100px;
-  padding-right : 100px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .footer {
