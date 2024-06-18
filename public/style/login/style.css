@@ -64,6 +64,8 @@ body {
 .email input {
   outline: none;
   border: none;
+  background: #fcfcfc;
+  border-bottom: 1px solid rgba(106, 106, 106, 0.4);
 }
 
 .email input::-moz-placeholder {
@@ -96,6 +98,8 @@ body {
 .password input {
   outline: none;
   border: none;
+  background: #fcfcfc;
+  border-bottom: 1px solid rgba(106, 106, 106, 0.4);
 }
 
 .password input::-moz-placeholder {
