@@ -82,8 +82,6 @@ const getRetnerCallender = function (req, res) {
 }
 
 const getRetnerChatList = function (req, res) {
-
-
     res.render('./main/retner/main.retner.chat.ejs');
 }
 
@@ -91,4 +89,20 @@ const getRetnerAddExercise = function (req, res) {
     res.render('./main/retner/main.retner.exercisePush.ejs');
 }
 
-module.exports = { getRetnerMainPage, getRetnerCallender, getRetnerChatList, getRetnerAddExercise };
+const getRetnerPatientList = function (req, res) {
+    res.render('./main/retner/main.retner.memberList.ejs');
+}
+
+const getRetnerEveryChatList = function (req, res) {
+    res.render('./main/retner/main.retner.memberList.ejs');
+}
+
+const getRetnerPatientInfo = function (req, res) {
+    res.render('./main/retner/main.retner.exercisePush.ejs');
+}
+
+const getRetnerPateintEnter = function (req, res) {
+    res.render('./main/retner/main.retner.exerciseAdd.ejs')
+}
+
+module.exports = { getRetnerMainPage, getRetnerCallender, getRetnerChatList, getRetnerAddExercise, getRetnerPatientList, getRetnerEveryChatList, getRetnerPatientInfo, getRetnerPateintEnter };
