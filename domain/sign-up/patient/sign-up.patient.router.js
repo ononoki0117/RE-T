@@ -2,6 +2,19 @@ var router = require('express').Router();
 
 const controller = require('./sign-up.patient.controller');
 
+let multer = require('multer');
+
+let storage = multer.diskStorage({
+    destination: function (req, file, done) {
+        done(null, './public/img/profile')
+    },
+    filename: function (req, file, done) {
+        done(null, file.originalname)
+    }
+})
+
+let upload = multer({ storage: storage });
+
 router
     .route('/sign-up/patient')
     .get(controller.redirectToStart);
@@ -29,7 +42,7 @@ router
 router
     .route('/sign-up/patient/profile')
     .get(controller.detectInvalidAccess)
-    .post(controller.confirmProfile);
+    .post(upload.single('picture'), controller.confirmProfile);
 
 
 module.exports = router;

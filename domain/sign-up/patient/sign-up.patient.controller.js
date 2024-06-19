@@ -1,5 +1,7 @@
 const { user } = require('../../../common/auth/auth.sign-up');
 
+let imagepath;
+
 // 회원가입 첫 화면으로 이동
 const redirectToStart = function (req, res) {
     res.redirect('/sign-up/patient/agree');
@@ -68,6 +70,9 @@ const confirmPrivacyInformation = function (req, res) {
     user.register()
         .then((result) => {
             console.log(`프로미스의 결과값? ${JSON.stringify(result)}`);
+            req.session.user = user.model;
+            console.log(req.session.user);
+
             res.render('./sign-up/patient/sign-up.patient.profile.ejs')
         })
         .catch((err) => {
@@ -79,7 +84,21 @@ const confirmPrivacyInformation = function (req, res) {
 
 // 환자 프로필 사진 서버에 저장 후 회원가입 완료 절차
 const confirmProfile = function (req, res) {
+    user.model = req.session.user;
+    imagepath = '/' + req.file.path;
 
+    // user profile에 값 주입
+    user.model.profile = {
+        picture: imagepath,
+        nickname: req.body.nickname
+    }
+
+    console.log(JSON.stringify(user.model.profile));
+
+    user.setProfile()
+        .then((result) => {
+            console.log('프로파일 에딧 성공');
+        })
 
     console.log('환자 사진 등록 완료, 홈 화면으로 이동');
 
