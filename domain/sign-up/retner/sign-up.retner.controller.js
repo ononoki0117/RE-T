@@ -43,8 +43,17 @@ const confirmVerification = function (req, res) {
 // 리트너 ID 패스워드 입력 값 검증, 리트너 코드 DB 값 검증, 리트너 보유 환자 배열 안에 환자 추가
 const confirmPrivacyInformation = function (req, res) {
     // model에 값 주입
-    user.model = req.body;
-    user.model.kind = "retner";
+    user.model = {
+        login_id: req.body.login_id,
+        password: req.body.password,
+        password_repeat: req.body.password_repeat,
+        staff_id: req.body.staff_id,
+        kind: 'retner',
+        profile: {
+            organization: req.body.organization
+        }
+    };
+
     console.log(user.model);
 
     // 필드에 값이 빈 경우 찾기
@@ -68,12 +77,12 @@ const confirmPrivacyInformation = function (req, res) {
     user.register()
         .then((result) => {
             console.log(`프로미스의 결과값? ${JSON.stringify(result)}`);
-            res.render('./sign-up/retner/sign-up.retner.info.ejs')
+            res.redirect('/');
         })
         .catch((result) => {
             console.log(`망한 프로미스의 결과값? ${JSON.stringify(result)}`)
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-            res.write("<script>alert('ID가 중복됩니다! 다른 아이디를 사용해 주세요!');  history.go(-1);</script>");
+            res.write(`<script>alert('${err}');  history.go(-1);</script>`);
         })
 }
 
@@ -81,7 +90,7 @@ const confirmPrivacyInformation = function (req, res) {
 const confirmProfile = function (req, res) {
     console.log('리트너 정보 등록 완료, 홈 화면으로 이동');
 
-    res.redirect('/');
+
 }
 
 // agree를 건너뛰고 다른 페이지부터 접근하면(get방식으로 접근하면), 혹은 세션에 있는 값이 잘못되면 호출됨
