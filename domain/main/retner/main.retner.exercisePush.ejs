@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../../component/component.head.html") %>
+        <title>RE:T main</title>
+
+        <link rel="stylesheet" href="/style/main/style.css">
+
+</head>
+
+<body class="screen-1">
+    <div>
+        <%- include('../../component/component.header.ejs') %>
+    </div>
+    
+    
+
+    <div class="patientList">
+        <div class="circle">
+            <div class="circle2">
+                <img id="imagePreview">
+            </div>
+        </div>
+
+        <div id="gap3"></div>
+
+        <div class="ex_explain">
+            <h5 class="exercise_name">채승룡 님</h5>
+            <p class="exercise_caption">발목 부상 환자</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h5 id="today_ret2">오늘 나의 재활</h5>
+
+    
+
+    <% for( let i=0; i < data.exercises.length; i++ ) { %>
+        <div class="exercise">
+            <div class="ex_explain">
+                <h5 class="exercise_name"></h5>
+                <%= data.exercises[i].name %>
+                    </h5>
+                    <p class="exercise_caption">
+                        <%= data.exercises[i].caption %>
+                    </p>
+            </div>
+            <div id="gap4"> </div>
+            <div class="check">
+                <div>
+                    <% if (data.exercises[i].complete) { %>
+                        <button type="button" class="complete">완료</button>
+                        <% } else {%>
+                            <button type="button" class="uncomplete">미완료</button>
+                            <% } %>
+                </div>
+
+                <button type="button" class="explain"
+                    onclick="location.href = '/exercise/explain/<%data.exercises[i].id%>'">
+                    <ins>
+                        운동 설명 보러가기 >
+                    </ins>
+                </button>
+            </div>
+        </div>
+        <div id="gap2"></div>
+
+        <% } %>
+
+        <button type="button" class="exercisePush"><ins>재활운동 추가하기</ins></button>
+    
+
+</body>
+
+</html>

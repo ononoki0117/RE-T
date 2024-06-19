@@ -175,6 +175,7 @@ body {
     height: 28px;
 }
 
+
 .screen-1 .today_un {
     font-size: 11px;
     border-radius: 10px;
@@ -194,6 +195,13 @@ body {
 #today_ret {
     color: #23262F;
     font-size: 20px;
+    font-weight: bolder;
+}
+
+#today_ret2 {
+    margin-top: 8px;
+    color: #23262F;
+    font-size: 16px;
     font-weight: bolder;
 }
 
@@ -585,3 +593,15 @@ body {
     margin-left: -15px;
     margin-right: 10px;
 }
+
+.screen-1 .exercisePush {
+    background-color: transparent;
+    font-size: 11px;
+    color: #546FFF;
+    border-width: 0px;
+    float: right;
+    display: flex;
+    position: relative;
+    
+    margin: 46px auto 0 auto;
+  }
