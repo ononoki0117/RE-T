@@ -8,31 +8,92 @@
 </head>
 
 <body class="screen-1">
-    <h4 stroke="2" class="app">RE:T</h4>
-    <hr stroke="1" class="line">
+    <div>
+        <%- include('../../component/component.header.ejs') %>
+    </div>
     <h5 stroke="2" class="date">SEPTEMBER 8</h5>
-    <div id="ret_gap"></div>
-
-    <div class="retner">
-        <h5 id="ret_title">안녕하세요 이용섭님!</h5>
-        <hr id="ret_line">
-        <p id="code">나의 리트너 코드 : A7S8DF</p>
-
-        <div class="message">
-            <p class="today_medi">오늘의 진료 : 3건</p>
-            <p class="today_chat">새로운 채팅 : 2건</p>
-        </div>
+    <div>
+        <%- include('../../component/component.retner.head.ejs') %>
     </div>
 
     <div class="list">
         <%- include('../../component/component.main.retner.select.ejs', {select : 3}) %>
     </div>
-
-    <div>
-        <h5 id="chat_member_list">최근 채팅 목록</h5>
-        <div id="gap2"></div>
-        <button id="chat_all">전체보기</button>
+    <div class="membership">
+        <h5 id="today_ret">최근 채팅 목록</h5>
+        <button id="member_all">전체보기</button>
     </div>
+    <div class="patientList">
+        <div class="circle">
+            <div class="circle2">
+                <img id="imagePreview">
+            </div>
+        </div>
+
+        <div id="gap3"></div>
+
+        <div class="ex_explain">
+            <h5 class="exercise_name">채승룡 님</h5>
+            <p class="new_message">새로운 메세지 (1)</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="patientList">
+        <div class="circle">
+            <div class="circle2">
+                <img id="imagePreview">
+            </div>
+        </div>
+
+        <div id="gap3"></div>
+
+        <<<<<<< Updated upstream <div>
+            <h5 id="chat_member_list">최근 채팅 목록</h5>
+            <div id="gap2"></div>
+            <button id="chat_all">전체보기</button>
+    </div>
+    =======
+    <div class="membership">
+        <h5 id="today_ret">최근 채팅 목록</h5>
+        <button id="member_all">전체보기</button>
+    </div>
+
+    <div class="patientList">
+        <div class="circle">
+            <div class="circle2">
+                <img id="imagePreview">
+            </div>
+        </div>
+
+        <div id="gap3"></div>
+
+        <div class="ex_explain">
+            <h5 class="exercise_name">채승룡 님</h5>
+            <p class="new_message">새로운 메세지 (1)</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="patientList">
+        <div class="circle">
+            <div class="circle2">
+                <img id="imagePreview">
+            </div>
+        </div>
+
+        <div id="gap3"></div>
+
+        <div class="ex_explain">
+            <h5 class="exercise_name">정인화 님</h5>
+            <p class="new_message">새로운 메세지 (3)</p>
+        </div>
+    </div>
+
+
+    >>>>>>> Stashed changes
 </body>
 
 </html>

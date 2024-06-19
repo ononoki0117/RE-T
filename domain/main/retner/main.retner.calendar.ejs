@@ -14,36 +14,39 @@
     </div>
 
     <div>
-        <%- include('../../component/component.calendar.weekly.ejs', {date: data.date}) %>
+        <<<<<<< Updated upstream <%- include('../../component/component.calendar.weekly.ejs', {date: data.date}) %>
+            =======
+            <%- include('../../component/component.calendar.string.ejs' ) %>
+                >>>>>>> Stashed changes
     </div>
 
     <div>
         <%- include('../../component/component.retner.head.ejs') %>
     </div>
 
-    <div>
+    <<<<<<< Updated upstream <div>
         <%- include('../../component/component.main.retner.select.ejs', {select : 2}) %>
-    </div>
+            </div>
 
-    <div class="calendar_name">
-        <div id="today_reserv">예약 캘린더</div>
-        <div id="all">
-            <a href="">
-                <span>
-                    <ins>전체보기</ins>
-                </span>
-            </a>
-        </div>
-    </div>
+            <div class="calendar_name">
+                <div id="today_reserv">예약 캘린더</div>
+                <div id="all">
+                    <a href="">
+                        <span>
+                            <ins>전체보기</ins>
+                        </span>
+                    </a>
+                </div>
+            </div>
 
-    <div class="calendar">
-        <div class="month_head">
-            <span class="month_name">SEPTEMBER</span>
-        </div>
-        <div>
-            <%- include('../../component/component.calendar.monthly.ejs', {calendar : data.calendar}) %>
-        </div>
-    </div>
+            <div class="calendar">
+                <div class="month_head">
+                    <span class="month_name">SEPTEMBER</span>
+                </div>
+                <div>
+                    <%- include('../../component/component.calendar.monthly.ejs', {calendar : data.calendar}) %>
+                </div>
+            </div>
 </body>
 
 </html>

@@ -14,35 +14,54 @@ const getRetnerMainPage = function (req, res) {
 
     let patients;
 
-    connection.connect()
-        .then(() => {
-            const db = connection.getDB();
+    if (req.session.patients == null) {
+        connection.connect()
+            .then(() => {
+                const db = connection.getDB();
 
-            db.collection('USER')
-                .find(query)
-                .toArray()
-                .then((result) => {
-                    patients = result;
-                    console.log(patients);
+                db.collection('USER')
+                    .find(query)
+                    .toArray()
+                    .then((result) => {
+                        patients = result;
+                        console.log(patients);
 
-                    res.render('./main/retner/main.retner.ejs', {
-                        data: {
-                            date: currentDate,
-                            user: req.session.user,
-                            message: {
-                                today: 3,
-                                new_chat: 2,
-                            },
-                            patients: patients
-                        }
-                    });
-                })
-        })
+                        req.session.patients = patients;
 
-        .catch((err) => {
-            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-            res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
-        })
+                        res.render('./main/retner/main.retner.ejs', {
+                            data: {
+                                date: currentDate,
+                                user: req.session.user,
+                                message: {
+                                    today: 3,
+                                    new_chat: 2,
+                                },
+                                patients: patients
+                            }
+                        });
+                    })
+            })
+            .catch((err) => {
+                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+                res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
+            })
+    }
+    else {
+        patients = req.session.patients;
+        res.render('./main/retner/main.retner.ejs', {
+            data: {
+                date: currentDate,
+                user: req.session.user,
+                message: {
+                    today: 3,
+                    new_chat: 2,
+                },
+                patients: patients
+            }
+        });
+    }
+
+
 }
 
 const getRetnerCallender = function (req, res) {
@@ -68,8 +87,8 @@ const getRetnerChatList = function (req, res) {
     res.render('./main/retner/main.retner.chat.ejs');
 }
 
-const getRetnerAddExercise = function(req, res) {
-    res.render ('./main/retner/main.retner.exercisePush.ejs');
+const getRetnerAddExercise = function (req, res) {
+    res.render('./main/retner/main.retner.exercisePush.ejs');
 }
 
 module.exports = { getRetnerMainPage, getRetnerCallender, getRetnerChatList, getRetnerAddExercise };

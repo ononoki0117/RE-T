@@ -1,22 +1,14 @@
 <div class="calendar_header">
     <h5 stroke="2" class="date" id="calendar_string">
     </h5>
-    <ion-icon name="calendar-outline" onclick="location.href='./calendar'"></ion-icon>
 </div>
 
 <script>
     var currentDate = new Date();
 
-    var today = document.getElementById(0);
-    today.classList.add('selected');
-
     var calendarString = document.getElementById('calendar_string');
     calendarString.innerHTML = getMonthName(currentDate.getMonth()) + " " + currentDate.getDate()
 
-    const getDateName = function (day) {
-        const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-        return dayNames[day % 7];
-    };
 
     function getMonthName(monthIndex) {
         const monthNames = [
