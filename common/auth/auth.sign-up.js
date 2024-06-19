@@ -78,6 +78,7 @@ const user = {
         profile: {
             picture: null,
             nickname: null,
+            hurt: null,
             organization: null,
         },
     },

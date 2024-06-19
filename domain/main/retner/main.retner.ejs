@@ -53,18 +53,32 @@
                         <% if(patient.profile !=null) { %>
                             <div class="member_box">
                                 <div class="image">
-                                    <img src="<%= patient.profile.picture %>">
+                                    <% if (patient.profile.picture !=null) { %>
+                                        <img src="<%= patient.profile.picture %>">
+                                        <% } %>
                                 </div>
+
                                 <div class="member_explain">
                                     <h5 class="member_name">
-                                        <%= patient.profile.nickname %>님
+                                        <% if (patient.profile.nickname !=null) { %>
+                                            <%= patient.profile.nickname %>님
+                                                <% } else { %>
+                                                    <%= patient.login_id %>님
+                                                        <% } %>
                                     </h5>
-                                    <p class="member_caption">허리 디스크 환자</p>
+                                    <p class="member_caption">
+                                        <% if (patient.profile.hurt !=null) { %>
+                                            <%=patient.profile.hurt %>
+                                                <% } else { %>
+                                                    통증 정보 없음
+                                                    <% } %>
+                                    </p>
+
                                 </div>
+
                             </div>
                             <% } %>
                                 <% }) %>
-
                                     <% } %>
         </div>
 

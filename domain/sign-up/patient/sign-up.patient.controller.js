@@ -44,8 +44,12 @@ const confirmVerification = function (req, res) {
 
 // 환자 ID 패스워드 입력 값 검증, 리트너 코드 DB 값 검증, 리트너 보유 환자 배열 안에 환자 추가
 const confirmPrivacyInformation = function (req, res) {
+    const hurt = req.body.hurt;
+
     // model에 값 주입
     user.model = req.body;
+    delete user.model.hurt;
+
     user.model.kind = 'patient';
     console.log(user.model);
 
@@ -71,6 +75,8 @@ const confirmPrivacyInformation = function (req, res) {
         .then((result) => {
             console.log(`프로미스의 결과값? ${JSON.stringify(result)}`);
             req.session.user = user.model;
+            req.session.hurt = hurt;
+
             console.log(req.session.user);
 
             res.render('./sign-up/patient/sign-up.patient.profile.ejs')
@@ -91,7 +97,8 @@ const confirmProfile = function (req, res) {
     // user profile에 값 주입
     user.model.profile = {
         picture: imagepath,
-        nickname: req.body.nickname
+        nickname: req.body.nickname,
+        hurt: req.session.hurt,
     }
 
     console.log(JSON.stringify(user.model.profile));
