@@ -192,5 +192,13 @@ select {
     min-height: 100%;
     padding-bottom: 1000px;
   }
+#copy{
+    font-size : 12px;
+}
+.code_box{
+    display:flex;
+    justify-content: space-between;
+    padding-right : 20px;
+}
 
 
