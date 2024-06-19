@@ -18,34 +18,46 @@
     <h3 id="agree_title">회원가입</h3>
 
     <form method="post" action="/sign-up/patient/complete">
-        <div class="container">
-            <label for="name" class="name">* 아이디<br>
-                <input type="text" name="login_id" placeholder="아이디입력" /><br><br>
+        <div class="field_container">
+            <label for="name" class="name">아이디<br>
+                <input type="text" name="login_id" placeholder="아이디입력" />
+                <hr class="underline">
             </label>
+        </div>
             <br>
-            <label for="password" class="password">* 비밀번호<br>
-                <input type="password" name="password" placeholder="··················" /><br><br>
+        <div class="field_container">
+            <label for="password" class="name">비밀번호<br>
+                <input type="password" name="password" placeholder="··················" />
+                <hr class="underline">
             </label>
+        </div>
             <br>
-            <label for="password" class="password">* 비밀번호 확인<br>
-                <input type="password" name="password_repeat" placeholder="··················" /><br><br>
+        <div class="field_container">
+            <label for="password" class="password">비밀번호 확인<br>
+                <input type="password" name="password_repeat" placeholder="··················" />
             </label>
-            <br>
+            <hr class="underline">
+        </div>
             <hr>
-            <br>
+        <div class="field_container">
             <label for="doctor" class="doctor">* 리트너 찾기<br>
-                <input type="text" name="staff_id" placeholder="리트너 코드 입력" /><br><br>
+                <input type="text" name="staff_id" placeholder="리트너 코드 입력" />
             </label>
+            <hr class="underline">
+        </div>
             <br>
+        <div class="field_container">
             <label for="where_ahya" class="where_ahya">* 통증 부위<br>
-                <input type="text" name="hurt" placeholder="통증 부위 입력" /><br><br>
+                <input type="text" name="hurt" placeholder="통증 부위 입력" />
             </label>
+            <hr class="underline">
+        </div>
 
 
             <br>
 
         </div>
-        <button class="confirm-sign-up">가입하기</button>
+        <button class="confirm">가입하기</button>
     </form>
 
 
