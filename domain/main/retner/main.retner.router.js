@@ -19,9 +19,10 @@ router.route('/retner/patient/list')
 router.route('/retner/chats/list')
     .get(controller.getRetnerEveryChatList);
 
-router.route('/retner/patient/info')
+router.route('/retner/patient')
     .get(controller.getRetnerPatientInfo)
 
 router.route('/retner/patient/add')
-    .get(controller.getRetnerPateintEnter);
+    .get(controller.getRetnerPatientExercise)
+    .post(controller.postRetnerPatientExercise);
 module.exports = router;

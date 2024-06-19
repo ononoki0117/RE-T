@@ -26,8 +26,13 @@
         <div id="gap3"></div>
 
         <div class="ex_explain">
-            <h5 class="exercise_name"><span class="profile_emphasis">채승룡</span>님!</h5>
-            <p class="profile_caption">오늘 병원 <span>방문일</span> 입니다!</p>
+            <h5 class="exercise_name"><span class="profile_emphasis">
+                    <%= name %>
+                </span>님!</h5>
+            <% if (day !=null) { %>
+                <p class="profile_caption">오늘 병원 <span>방문일</span> 입니다!</p>
+
+                <% } %>
         </div>
     </div>
 

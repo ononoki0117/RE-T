@@ -40,7 +40,8 @@
                 <% data.patients.forEach(patient=> { %>
                     <% if(patient.profile !=null) { %>
 
-                        <div class="exercise" onclick="location.href='/retner/patient/info'">
+                        <div class="exercise"
+                            onclick="location.href='/retner/patient?id=<%=patient.login_id%>&name=<%=patient.profile.nickname%>&hurt=<%=patient.profile.hurt%>'">
                             <div class="circle2"
                                 style="background-image:url('<% if (patient.profile.picture != null){ %><%= patient.profile.picture %><%}%>'); background-size: cover;">
                             </div>

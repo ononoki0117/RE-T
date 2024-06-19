@@ -16,7 +16,7 @@
     </div>
 
     <div>
-        <%- include('../../component/component.calendar.weekly.ejs') %>
+        <%- include('../../component/component.calendar.weekly.ejs', {day : 0}) %>
     </div>
 
     <br>
@@ -39,9 +39,11 @@
             aria-valuemax="100">
             <div class="heart_bar" style="width: 50%"></div>
         </div>
-        <input type="hidden" id="sliderValue" name="sliderValue" value="50">
+
+        <input type="hidden" id="sliderValue" name="hurt" value="50">
 
         <p class="heart">재활운동 TODO LIST</p>
+
         <div class="todo">
             <% data.exercises.forEach(exercise=> { %>
                 <div class="my_work">
@@ -49,9 +51,16 @@
                         <%=exercise.name%>
                     </p>
                     <% if (exercise.complete) { %>
-                        <div class="com toggle"></div>
+                        <div class="com toggle">
+                            <input type="hidden" value="<%=exercise._id%>" class="checkbox" style="display: none;"
+                                name="on">
+                        </div>
                         <% } else { %>
-                            <div class="uncom toggle"></div>
+                            <div class="uncom toggle">
+                                <input type="hidden" value="<%=exercise._id%>" class="checkbox" style="display: none;"
+                                    name="off">
+                            </div>
+
                             <% } %>
                 </div>
                 <% }) %>
@@ -59,40 +68,11 @@
 
         <p class="heart">기록하기</p>
 
-        <textarea class="diary" placeholder=" 재활운동 후 느낀점 및 구체적 통증을 기록해주세요 |"> </textarea>
+        <textarea class="diary"
+            name="diary"><% if (data.diary!=null) { %><%= data.diary.diary %><% } else { %>재활운동 후 느낀점 및 구체적 통증을 기록해주세요<% } %></textarea>
 
         <button class="login">저장하기 </button>
     </form>
-
-    <script>
-        const heartGauge = document.querySelector('.heart_gauge');
-        const heartBar = document.querySelector('.heart_bar');
-        const sliderValueInput = document.getElementById('sliderValue');
-
-        heartBar.addEventListener('mousedown', (event) => {
-            const onMouseMove = (event) => {
-                const gaugeRect = heartGauge.getBoundingClientRect();
-                let newWidth = (event.clientX - gaugeRect.left) / gaugeRect.width * 100;
-
-
-                if (newWidth < 0) newWidth = 0;
-                if (newWidth > 100) newWidth = 100;
-
-                heartBar.style.width = newWidth + '%';
-                heartGauge.setAttribute('aria-valuenow', newWidth);
-                sliderValueInput.value = newWidth; // hidden input 업데이트
-            };
-
-            const onMouseUp = () => {
-                document.removeEventListener('mousemove', onMouseMove);
-                document.removeEventListener('mouseup', onMouseUp);
-            };
-
-            document.addEventListener('mousemove', onMouseMove);
-            document.addEventListener('mouseup', onMouseUp);
-        });
-    </script>
-
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -102,22 +82,27 @@
                 const myWork = event.target.closest('.my_work');
                 if (myWork) {
                     const toggleDiv = myWork.querySelector('.toggle');
+                    const checkbox = myWork.querySelector('.checkbox');
+                    console.log(checkbox);
                     if (toggleDiv) {
                         if (toggleDiv.classList.contains('com')) {
                             toggleDiv.classList.remove('com');
                             toggleDiv.classList.add('uncom');
+                            checkbox.name = 'off';
                         } else {
                             toggleDiv.classList.remove('uncom');
                             toggleDiv.classList.add('com');
+                            checkbox.name = 'on';
                         }
                     }
                 }
             });
         });
     </script>
-        <div class="btn_chat">
-            <%- include('../../component/component.chatting.ejs') %>
-        </div>
+
+    <div class="btn_chat">
+        <%- include('../../component/component.chatting.ejs') %>
+    </div>
 </body>
 
 </html>

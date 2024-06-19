@@ -25,13 +25,14 @@
         function animateProgressBar() {
             let currentProgress = 0;
             const interval = setInterval(function () {
-                currentProgress++;
+
                 progressBar.style.width = currentProgress + '%';
                 progressNum.textContent = currentProgress + ' %';
 
                 if (currentProgress >= targetProgress) {
                     clearInterval(interval); // 목표에 도달하면 애니메이션 중지
                 }
+                currentProgress++;
             }, 35); // 애니메이션 속도를 조절할 수 있는 간격 (ms)
         }
 

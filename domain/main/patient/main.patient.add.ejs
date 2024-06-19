@@ -14,31 +14,7 @@
         <%- include('../../component/component.header.ejs') %>
     </div>
 
-    <div class="patientList">
-        <div class="circle">
-            <div class="circle2">
-                <img id="imagePreview">
-            </div>
-        </div>
-
-        <div id="gap3"></div>
-
-        <div class="ex_explain">
-            <h5 class="exercise_name">
-                <%=data.name%> 님
-            </h5>
-            <p class="exercise_caption">
-                <% if (data.hurt.length !=0) { %>
-                    <%=data.hurt %> 환자
-                        <% } else { %>
-                            통증 정보 없음
-                            <% } %>
-            </p>
-        </div>
-    </div>
-
-    <hr>
-    <form action='/retner/patient/add?id=<%=data.id%>&name=<%=data.name%>&hurt=<%=data.hurt%>' method="post">
+    <form action='/patient/add?day=<%=day%>' method="post">
         <div class="exerciseAdd">
             <h5 class="add">재활운동 추가하기</h5>
             <br>
@@ -120,7 +96,6 @@
             </button>
         </div>
     </form>
-
 
 </body>
 

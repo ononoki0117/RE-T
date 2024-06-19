@@ -15,7 +15,7 @@
     </div>
 
     <div>
-        <%- include('../../component/component.calendar.weekly.ejs', {date: data.date}) %>
+        <%- include('../../component/component.calendar.weekly.ejs', {day : data.day}) %>
     </div>
 
     <br>
@@ -28,84 +28,52 @@
         <%- include('../../component/component.main.select.ejs', {select : 1}) %>
     </div>
 
-    <h5 id="today_ret">오늘 나의 재활</h5>
+    <% if (data.day==0) { %>
+        <h5 id="today_ret">오늘 나의 재활</h5>
+        <% } else { %>
+            <h5 id="today_ret">예정된 나의 재활</h5>
+            <% } %>
 
-    <% for( let i=0; i < data.exercises.length; i++ ) { %>
-        <div class="exercise">
-            <div class="ex_explain">
-                <h5 class="exercise_name"></h5>
-                <%= data.exercises[i].name %>
-                    </h5>
-                    <p class="exercise_caption">
-                        <%= data.exercises[i].caption %>
-                    </p>
-            </div>
-            <div id="gap4"> </div>
-            <div class="check">
-                <div>
-                    <% if (data.exercises[i].complete) { %>
-                        <button type="button" class="complete">완료</button>
-                        <% } else {%>
-                            <button type="button" class="uncomplete">미완료</button>
-                            <% } %>
-                </div>
+                <% for( let i=0; i < data.exercises.length; i++ ) { %>
+                    <div class="exercise2">
+                        <div class="ex_explain">
+                            <h5 class="exercise_name"></h5>
+                            <%= data.exercises[i].name %>
+                                </h5>
+                                <p class="exercise_caption">
+                                    <%= data.exercises[i].caption %>
+                                </p>
+                        </div>
+                        <div id="gap4"> </div>
+                        <div class="check">
+                            <div>
+                                <% if (data.exercises[i].complete) { %>
+                                    <button type="button" class="complete">완료</button>
+                                    <% } else {%>
+                                        <button type="button" class="uncomplete">미완료</button>
+                                        <% } %>
+                            </div>
 
-                <button type="button" class="explain"
-                    onclick="location.href = '/exercise/explain/<%data.exercises[i].id%>'">
-                    <ins>
-                        운동 설명 보러가기
-                    </ins>
-                </button>
-            </div>
-        </div>
-        <div id="gap2"></div>
+                            <button type="button" class="explain"
+                                onclick="location.href = '/exercise/explain/<%data.exercises[i].id%>'">
+                                <ins>
+                                    운동 설명 보러가기
+                                </ins>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="gap2"></div>
 
-        <% } %>
+                    <% } %>
 
-            <script>
-                const changeSelectedDay = function (i) {
-                    return function () {
-                        var targetDate = new Date();
+                        <button type="button" class="exercisePush"
+                            onclick="location.href='/patient/add?day=<%= data.day %>'">
+                            <ins>재활운동
+                                추가하기</ins></button>
 
-                        targetDate.setDate(currentDate.getDate() + i);
-
-                        calendarString.innerHTML = getMonthName(targetDate.getMonth()) + " " + targetDate.getDate()
-
-                        var target = document.getElementById(i);
-                        var formerTargets = document.getElementsByClassName('selected');
-
-                        while (formerTargets.length > 0) {
-                            formerTargets[0].classList.remove('selected');
-                        }
-
-                        target.classList.add('selected');
-                        const today_ret = document.getElementById('today_ret');
-                        if (target.classList.contains('today')) {
-                            today_ret.innerHTML = '오늘 나의 재활';
-
-                        }
-                        else {
-                            today_ret.innerHTML = '예정된 나의 재활';
-
-                        }
-
-
-                    }
-                }
-
-                window.onload = function () {
-                    for (var i = 0; i < 7; i++) {
-                        var target = document.getElementById(i);
-
-                        target.innerHTML = currentDate.getDate() + i + "<br />ㅡ<br />" + getDateName(currentDate.getDay() + i);
-
-                        target.addEventListener('click', changeSelectedDay(i));
-                    }
-                }
-            </script>
-    <div class="btn_chat">
-        <%- include('../../component/component.chatting.ejs') %>
-    </div>
+                        <div class="btn_chat">
+                            <%- include('../../component/component.chatting.ejs') %>
+                        </div>
 
 </body>
 

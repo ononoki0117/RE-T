@@ -7,23 +7,33 @@
 <div id="gap1"></div>
 
 <div class="week">
-    <button type="button" id="0" class="day today">8<br />ㅡ<br />SUN</button>
-    <button type="button" id="1" class="day">9<br />ㅡ<br />MON</button>
-    <button type="button" id="2" class="day">10<br />ㅡ<br />TUE</button>
-    <button type="button" id="3" class="day">11<br />ㅡ<br />WED</button>
-    <button type="button" id="4" class="day">12<br />ㅡ<br />THU</button>
-    <button type="button" id="5" class="day">13<br />ㅡ<br />FRI</button>
-    <button type="button" id="6" class="day">14<br />ㅡ<br />SAT</button>
+    <button type="button" id="0" onclick="location.href='/patient/main?day=0'"
+        class="day today">8<br />ㅡ<br />SUN</button>
+    <button type="button" id="1" onclick="location.href='/patient/main?day=1'" class="day">9<br />ㅡ<br />MON</button>
+    <button type="button" id="2" onclick="location.href='/patient/main?day=2'" class="day">10<br />ㅡ<br />TUE</button>
+    <button type="button" id="3" onclick="location.href='/patient/main?day=3'" class="day">11<br />ㅡ<br />WED</button>
+    <button type="button" id="4" onclick="location.href='/patient/main?day=4'" class="day">12<br />ㅡ<br />THU</button>
+    <button type="button" id="5" onclick="location.href='/patient/main?day=5'" class="day">13<br />ㅡ<br />FRI</button>
+    <button type="button" id="6" onclick="location.href='/patient/main?day=6'" class="day">14<br />ㅡ<br />SAT</button>
+</div>
+
+<div style="display: none;" id=dayafter>
+    <%= day %>
 </div>
 
 <script>
     var currentDate = new Date();
+    var dayafter = Number(document.getElementById('dayafter').innerText);
 
     var today = document.getElementById(0);
-    today.classList.add('selected');
+    var targetDay = document.getElementById(dayafter);
+    targetDay.classList.add('selected');
+
+    var targetDate = new Date();
+    targetDate.setDate(currentDate.getDate() + dayafter);
 
     var calendarString = document.getElementById('calendar_string');
-    calendarString.innerHTML = getMonthName(currentDate.getMonth()) + " " + currentDate.getDate()
+    calendarString.innerHTML = getMonthName(targetDate.getMonth()) + " " + targetDate.getDate()
 
     const getDateName = function (day) {
         const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];

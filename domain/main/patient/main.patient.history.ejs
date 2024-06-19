@@ -15,7 +15,7 @@
     </div>
 
     <div>
-        <%- include('../../component/component.calendar.weekly.ejs') %>
+        <%- include('../../component/component.calendar.weekly.ejs', {day : 0}) %>
     </div>
 
     <br>
@@ -40,8 +40,12 @@
         <div id="gap3"></div>
 
         <div class="ex_explain">
-            <h5 class="exercise_name">서울 믿음소망 정형외과</h5>
-            <p class="exercise_caption">이용섭 전문의</p>
+            <h5 class="exercise_name">
+                <%= data.organization %>
+            </h5>
+            <p class="exercise_caption">
+                <%=data.retner %>
+            </p>
         </div>
     </div>
 

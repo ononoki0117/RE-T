@@ -5,12 +5,17 @@ router.route('/patient/main')
     .get(controller.getPatientMainPage);
 
 router.route('/patient/diary')
-    .get(controller.getPatientDiary);
+    .get(controller.getPatientDiary)
+    .post(controller.postPatientDiary);
 
 router.route('/patient/history')
     .get(controller.getPatientHistory);
 
 router.route('/patient/calendar')
     .get(controller.getPatientcalendar);
+
+router.route('/patient/add')
+    .get(controller.getPatientExplan)
+    .post(controller.postPatientExplan);
 
 module.exports = router;
