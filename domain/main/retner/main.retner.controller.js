@@ -45,4 +45,27 @@ const getRetnerMainPage = function (req, res) {
         })
 }
 
-module.exports = { getRetnerMainPage };
+const getRetnerCallender = function (req, res) {
+    const calendarControl = require('../../component/component.calendar.controller')
+
+    const calendar = calendarControl.getMonthlycalendar(currentYear, currentMonth);
+
+    calendar.forEach(week => {
+        week.forEach(day => {
+            if (day.day == currentDate.getDate()) {
+                day.today = true;
+            }
+
+        });
+    });
+
+    res.render('./main/retner/main.retner.calendar.ejs', { data: { date: currentDate, calendar: calendar } });
+}
+
+const getRetnerChatList = function (req, res) {
+
+
+    res.render('./main/retner/main.retner.chat.ejs');
+}
+
+module.exports = { getRetnerMainPage, getRetnerCallender, getRetnerChatList };
