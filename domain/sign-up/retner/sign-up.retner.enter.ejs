@@ -35,15 +35,66 @@
                     <input type="password" name="password_repeat" placeholder="··················" /><br><br>
                 </label>
                 <br>
+                <hr>
                 <br>
+                <label for="name" class="name">* 소속 기관<br>
+                    <input type="text" name="login_id" placeholder="소속기관입력" /><br><br>
+                </label>
+                <br>
+                <label for="retner_verification" class="retner_verification">* 인증번호 입력<br>
+                    <input type="retner_verification" name="retner_verification" placeholder="인증번호입력" /><br><br>
+                </label>
+                <br>
+                <label for="retner_code" class="retner_code">* 리트너 코드<br>
+                    <div class="code_box">
+                        <input type="text" id="code_number" value="" readonly>
+                        <p class="code_p" id="copy"><ins>복사하기</ins></p>
+                    </div>
+                </label>
 
-                <br> <br> <br> <br> <br> <br>
+                <br>
 
             </div>
             <button class="confirm-sign-up">가입하기</button>
         </form>
 
     </div>
+
+    <script>
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const codeLength = 6;
+
+        // 무작위 코드 생성 함수
+        function generateCode() {
+            let code = '';
+            for (let i = 0; i < codeLength; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                code += characters.charAt(randomIndex);
+            }
+            return code;
+        }
+
+        // 코드 생성 및 출력
+        const uniqueCode = generateCode();
+        const codeInput = document.getElementById('code_number');
+        codeInput.value = uniqueCode;
+
+        // 코드 복사 기능
+        const copyText = document.getElementById('copy');
+        copyText.addEventListener('click', copyToClipboard);
+
+        function copyToClipboard() {
+            const codeValue = codeInput.value;
+            navigator.clipboard.writeText(codeValue)
+                .then(() => {
+                    alert('코드가 복사되었습니다: ' + codeValue);
+                })
+                .catch((err) => {
+                    console.error('클립보드 복사 실패:', err);
+                });
+        }
+
+    </script>
 
 </body>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>

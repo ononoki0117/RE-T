@@ -100,7 +100,6 @@ img.logo {
   border: none;
   background-color: transparent;
   text-decoration-line: underline;
-  width: 100%;
   height: 1.5em;
   padding: 0.5em;
   box-sizing: border-box;
@@ -236,8 +235,7 @@ button {
 
 .code_box{
   display: flex;
-  justify-content: center;
-  gap : 170px;
+  justify-content: space-between;
 }
 
 .code_p{
