@@ -670,38 +670,13 @@ body {
   }
 
   .screen-1 .calendar{
-    width : 345px;
-    height : 326px;
-    background-color : #ffffff;
-    border-radius : 10px;
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.08);
     margin-top : 10px;
-    margin-left : -1.5px;
-    padding-left : 25px;
-    padding-right : 12px;
-    padding-top : 21px;
     padding-bottom : 21px;
     vertical-align: middle;
     display : flex;
     justify-content : space-between;
     align-items: center;
     position: relative;
-  }
-  .month_head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-    padding-top : 10px;
-  }
-  .month_name {
-    font-size : 16px;
-    font-weight : bold;
-    font-weight : bold;
   }
 
   .screen-1 .calendar_patient{
@@ -1014,4 +989,8 @@ body {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+}
+.reservation_time {
+    font-size: 16px;
+    margin-left : auto;
 }
