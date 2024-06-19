@@ -679,7 +679,7 @@ body {
     font-size : 16px;
   }
 
-  .screen-1 .exercise{
+  .screen-1 .calendar_patient{
     width : 339px;
     height : 93px;
     background-color : #ffffff;
@@ -696,20 +696,20 @@ body {
     position: relative;
   
   }
-  .exercise_name{
+  .calen_patient_name{
     font-size:16px;
     font-weight:500;
     margin-bottom : 4px;
     margin-top : 2px;
     padding-left: 70px;
   }
-  .exercise_caption{
-    font-weight:350;
-    font-size:11px;
+  .patient_descrip{
+    font-weight : 350;
+    font-size : 11px;
     margin-bottom : 0px;
-    padding-left: 70px;
+    padding-left : 70px;
   }
-  .screen-1 .circle {
+  .screen-1 .patient_circle {
     margin: 0;
     width: 52px;
     height: 52px;
@@ -725,7 +725,7 @@ body {
     border: 1px solid rgb(151, 142, 139);
   }
   
-  .screen-1 .circle2 {
+  .screen-1 .patient_circle2 {
     width: 47.48px;
     height: 47.48px;
     background-color: rgb(221, 221, 221);
