@@ -17,60 +17,72 @@
     <h3 id="agree_title">본인인증</h3>
 
     <form method="post" action="/sign-up/retner/enter-information">
-        <div class="container">
-            <label for="name" class="name">* 이름<br>
-                <input type="text" id ="login_id" placeholder="이름입력" /><br><br>
+       
+        <div class="field_container">
+            <label for="name" class="name">이름<br>
+                <input type="text" id ="login_id" placeholder="이름입력" />
             </label>
+            <hr class="underline">
+        </div>
             <br>
+        <div class="field_container">
             <div class="birth">
-                <label for="birth" class="birth_label">* 주민등록번호 앞 7자리<br>
-                    <table id="brith_table">
-                        <tr>
-                            <td>
-                                <input type="number" name="birth" class="birth_input" maxlength="7" placeholder="생년월일입력"
-                                    oninput='handleOnInput(this, 6)' />
-                            </td>
-                            <td class="dash"></td>
-                            <td>
-                                <input type="number" name="birth" class="birth_input" maxlength="1" placeholder="0"
-                                    oninput='handleOnInput(this, 1)' />
-                            </td>
-                            <td class="resident-num"></td>
-                        </tr>
-                    </table>
-                </label><br><br>
+                <label for="birth" class="name">주민등록번호 앞 7자리<br>
+                    <div class="horizontal">
+                        <div>
+                            <input type="number" name="birth" class="birth_input" maxlength="7" placeholder="생년월일입력"
+                                oninput='handleOnInput(this, 6)'>
+                            <hr class="underline">
+                        </div>
+        
+                        <div>-</div>
+        
+                        <div>
+                            <input type="number" name="birth" class="birth_input" maxlength="1" placeholder="0"
+                                oninput='handleOnInput(this, 1)'>
+                            <hr class="underline">
+                        </div>
+                        <div class="resident-num"></div>
+                    </div>
+                </label>
             </div>
+        </div>
 
             <br>
+        <div class="field_container">
+            <label for="phone" class="name">휴대전화번호</label>
 
-            <div id="phone_number">
-                <label for="phone" class="phone">* 휴대전화번호<br>
-                    <table id="phone_tab">
-                        <tr>
-                            <td>
-                                <select id="phone_agency">
-                                    <option value="" disabled selected>통신사</option>
-                                    <option value="SKT">SKT</option>
-                                    <option value="LGU+">LGU+</option>
-                                    <option value="KT">KT</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="number" class="phone_num" maxlength="3" placeholder="010"
-                                    oninput='handleOnInput(this, 3)'>
-                            </td>
-                            <td class="dash"></td>
-                            <td>
-                                <input type="number" class="phone_num" maxlength="4" oninput='handleOnInput(this, 4)'>
-                            </td>
-                            <td class="dash"></td>
-                            <td>
-                                <input type="number" class="phone_num" maxlength="4" oninput='handleOnInput(this, 4)'>
-                            </td>
-                        </tr>
-                    </table>
-                </label><br> <br>
+            <div class="horizontal">
+                <div>
+                    <select id="phone_agency">
+                        <option value="" disabled selected>통신사</option>
+                        <option value="SKT">SKT</option>
+                        <option value="LGU+">LGU+</option>
+                        <option value="KT">KT</option>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="number" class="phone_num" maxlength="3" placeholder="010"
+                        oninput='handleOnInput(this, 3)'>
+                    <hr class="underline">
+                </div>
+
+                <div>-</div>
+
+                <div>
+                    <input type="number" class="phone_num" maxlength="4" oninput='handleOnInput(this, 4)'>
+                    <hr class="underline">
+                </div>
+
+                <div>-</div>
+
+                <div>
+                    <input type="number" class="phone_num" maxlength="4" oninput='handleOnInput(this, 4)'>
+                    <hr class="underline">
+                </div>
             </div>
+        </div>
 
 
         </div>
