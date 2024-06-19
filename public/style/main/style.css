@@ -207,6 +207,39 @@ body {
 
 }
 
+.screen-1 .patientList {
+
+    vertical-align: middle;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.screen-1 .searchbox {
+    width: 335px;
+    height: 45px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+   
+    padding-left: 28px;
+    padding-right: 12px;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    vertical-align: middle;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.searchbox input {
+    outline: none;
+    border: none;
+    background: #f1f1f1;
+    border-bottom: 1px solid rgba(106, 106, 106, 0.4);
+  }
+
 .exercise_name {
     font-size: 16px;
     font-weight: 500;
@@ -753,3 +786,10 @@ body {
     margin-top : 3px;
     padding-left : 50px;
   }
+}
+
+.lenz{
+    margin-left: -15px;
+    margin-right: 10px;
+}
+ㄴ
