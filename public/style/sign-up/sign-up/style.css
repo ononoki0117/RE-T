@@ -2,6 +2,17 @@
   font-family: "Poppins";
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 body {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -65,7 +76,9 @@ img.logo {
 
 .screen-1 .name,
 .screen-1 .password,
-.screen-1 .doctor{
+.screen-1 .retner_verification,
+.screen-1 .retner_code,
+.screen-1 .doctor {
   flex: 1;
   background: #f1f1f1;
   padding: 1em;
@@ -158,6 +171,24 @@ img.logo {
   margin-right: -5em;
 }
 
+.screen-1 .retner_verification input::-moz-placeholder {
+  color: black;
+  font-size: 0.9em;
+  background: #f1f1f1;
+}
+
+.screen-1 .retner_verification input:-ms-input-placeholder {
+  color: black;
+  font-size: 0.9em;
+  background: #f1f1f1;
+}
+
+.screen-1 .retner_verification input::placeholder {
+  background: #f1f1f1;
+  color: #6A6A6A;
+  font-size: 0.9em;
+}
+
 .screen-1 .confirm-sign-up {
   padding: 1em;
   background: #546FFF;
@@ -168,8 +199,8 @@ img.logo {
   margin-bottom: 46px;
   position: relative;
   display: block;
-  padding-left : 100px;
-  padding-right : 100px;
+  padding-left: 100px;
+  padding-right: 100px;
   margin: 46px auto 0 auto;
 }
 
@@ -194,8 +225,28 @@ button {
   margin-top: 0.5em;
 }
 
+#code_number{
+  padding-left: 0.5em;
+}
+
+#copy{
+  color: #6A6A6A;
+  font-size: 0.9em;
+}
+
+.code_box{
+  display: flex;
+  justify-content: center;
+  gap : 170px;
+}
+
+.code_p{
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
 #phone_number,
-.birth{
+.birth {
   background: #f1f1f1;
   padding: 1em;
   display: flex;
@@ -203,36 +254,39 @@ button {
   border-radius: 20px;
   color: #4d4d4d;
   height: 2.5em;
-  gap : 0px;
+  gap: 0px;
 }
 
-#phone_agency{
+#phone_agency {
   font-size: 0.9em;
   background-color: #E4E4E4;
-  color : rgba(0, 0, 0, 0.5);
-  border-radius : 5px;
-  border : 0px;
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 0px;
 }
+
 .phone_num,
-.birth_input{
-  padding : 0;
-  margin : 0;
+.birth_input {
+  padding: 0;
+  margin: 0;
   font-size: 0.9em;
-  border-width : 0 0 1px;
-  width:70px;
-  border-bottom : 1px solid #000;
+  border-width: 0 0 1px;
+  width: 70px;
+  border-bottom: 1px solid #000;
 }
 
-.birth_label{
-  margin-bottom : 0px;
+.birth_label {
+  margin-bottom: 0px;
 }
 
-#birth_table, #phone_tab {
+#birth_table,
+#phone_tab {
   display: inline-table;
   border-collapse: collapse;
 }
 
-#birth_table td, #phone_tab td {
+#birth_table td,
+#phone_tab td {
   padding: 0;
 }
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../../component/component.head.html") %>
+        <title>RE:T main</title>
+
+        <link rel="stylesheet" href="/style/main/style.css">
+
+</head>
+
+<body class="screen-1">
+    <div>
+        <%- include('../../component/component.header.ejs') %>
+    </div>
+    <hr>
+    <div>
+        <%- include('../../component/component.calendar.monthly.ejs', calendar) %>
+    </div>
+    <br>
+    <div class = "calendar_patient">
+        <div class = "calendar_list">
+          <div class="patient_circle"></div>
+          <div class="patient_circle2">
+              <img id="imagePreview">
+          </div>
+          <h5 class = "calen_patient_name">김도영 님</h5>
+          <p class = "patient_descrip">허리 디스크 환자</p>
+          <h5 class = "retner_time">09:00</h5>
+        </div>
+      </div>
+      <hr>
+</body>
+
+</html>
