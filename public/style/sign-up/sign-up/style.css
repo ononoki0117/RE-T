@@ -76,6 +76,8 @@ img.logo {
 
 .screen-1 .name,
 .screen-1 .password,
+.screen-1 .retner_verification,
+.screen-1 .retner_code,
 .screen-1 .doctor {
   flex: 1;
   background: #f1f1f1;
@@ -98,7 +100,6 @@ img.logo {
   border: none;
   background-color: transparent;
   text-decoration-line: underline;
-  width: 100%;
   height: 1.5em;
   padding: 0.5em;
   box-sizing: border-box;
@@ -169,6 +170,24 @@ img.logo {
   margin-right: -5em;
 }
 
+.screen-1 .retner_verification input::-moz-placeholder {
+  color: black;
+  font-size: 0.9em;
+  background: #f1f1f1;
+}
+
+.screen-1 .retner_verification input:-ms-input-placeholder {
+  color: black;
+  font-size: 0.9em;
+  background: #f1f1f1;
+}
+
+.screen-1 .retner_verification input::placeholder {
+  background: #f1f1f1;
+  color: #6A6A6A;
+  font-size: 0.9em;
+}
+
 .screen-1 .confirm-sign-up {
   padding: 1em;
   background: #546FFF;
@@ -203,6 +222,25 @@ img.logo {
 button {
   cursor: pointer;
   margin-top: 0.5em;
+}
+
+#code_number{
+  padding-left: 0.5em;
+}
+
+#copy{
+  color: #6A6A6A;
+  font-size: 0.9em;
+}
+
+.code_box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.code_p{
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 #phone_number,
