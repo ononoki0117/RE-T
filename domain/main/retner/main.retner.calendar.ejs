@@ -28,25 +28,12 @@
         <%- include('../../component/component.main.retner.select.ejs', {select : 2}) %>
             </div>
 
-            <div class="calendar_name">
-                <div id="today_reserv">예약 캘린더</div>
-                <div id="all">
-                    <a href="">
-                        <span>
-                            <ins>전체보기</ins>
-                        </span>
-                    </a>
-                </div>
+            <div class="membership">
+                <h5 id="today_ret">예약 캘린더</h5>
+                <button id="member_all">전체보기</button>
             </div>
 
-            <div class="calendar">
-                <div class="month_head">
-                    <span class="month_name">SEPTEMBER</span>
-                </div>
-                <div>
-                    <%- include('../../component/component.calendar.monthly.ejs', {calendar : data.calendar}) %>
-                </div>
-            </div>
+            <%- include('../../component/component.calendar.monthly.ejs', {calendar : data.calendar}) %>
 </body>
 
 </html>
