@@ -1,0 +1,25 @@
+<div class="calendar_header">
+    <h5 stroke="2" class="date" id="calendar_string">
+    </h5>
+</div>
+
+<script>
+    var currentDate = new Date();
+
+    var calendarString = document.getElementById('calendar_string');
+    calendarString.innerHTML = getMonthName(currentDate.getMonth()) + " " + currentDate.getDate()
+
+
+    function getMonthName(monthIndex) {
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        if (monthIndex < 0 || monthIndex > 11) {
+            return "Invalid month index";
+        }
+
+        return monthNames[monthIndex];
+    }
+</script>

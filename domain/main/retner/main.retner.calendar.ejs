@@ -12,21 +12,25 @@
     <div>
         <%- include('../../component/component.header.ejs') %>
     </div>
-    <h5 stroke = "2" class = "date">SEPTEMBER 8</h5>
+
+    <div>
+        <%- include('../../component/component.calendar.string.ejs' ) %>
+    </div>
+
     <div>
         <%- include('../../component/component.retner.head.ejs') %>
     </div>
 
-    <div class = "select">
+    <div class="select">
         <%- include('../../component/component.main.retner.select.ejs', {select : 2}) %>
     </div>
 
-    <div class = "membership">
+    <div class="membership">
         <h5 id="today_ret">예약 캘린더</h5>
         <button id="member_all">전체보기</button>
     </div>
-    
-        <%- include('../../component/component.calendar.monthly.ejs', {calendar : data.calendar}) %>
+
+    <%- include('../../component/component.calendar.monthly.ejs', {calendar : data.calendar}) %>
 </body>
 
 </html>

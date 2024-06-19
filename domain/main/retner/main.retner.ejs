@@ -7,76 +7,71 @@
         <link rel="stylesheet" href="/style/main/style.css">
 </head>
 
-<body class = "screen-1">
-        <div>
-            <%- include('../../component/component.header.ejs') %>
-        </div>
-        <h5 stroke = "2" class = "date">SEPTEMBER 8</h5>
-        <div>
-            <%- include('../../component/component.retner.head.ejs') %>
-        </div>
-        <br>
 
-        <div class="select">
-            <%- include('../../component/component.main.retner.select.ejs', {select : 1}) %>
-        </div>
+<body class="screen-1">
+    <div>
+        <%- include('../../component/component.header.ejs') %>
+    </div>
 
-        <div class = "membership">
-            <h5 id="today_ret">회원목록</h5>
-            <button id="member_all">전체보기</button>
-        </div>
+    <div>
+        <%- include('../../component/component.calendar.string.ejs' ) %>
+    </div>
 
-        <div class="exercise">
-            <div class="circle2">
-                <img id="imagePreview">
-            </div>
-    
-            <div id="gap3"></div>
-    
-            <div class="ex_explain">
-                <h5 class="exercise_name">서울 믿음소망 정형외과</h5>
-                <p class="exercise_caption">이용섭 전문의</p>
-            </div>
-            <h5 class="reservation_time">09:00</h5>
-        </div>
+    <div>
+        <%- include('../../component/component.retner.head.ejs') %>
+    </div>
 
-        <div>
-            <% if (data.patients.length <=0) { %>
-                <div>없음</div>
 
-                <% } else { %>
-                    <% data.patients.forEach(patient=> { %>
-                        <% if(patient.profile !=null) { %>
-                            <div class="member_box">
-                                <div class="image">
-                                    <% if (patient.profile.picture !=null) { %>
-                                        <img src="<%= patient.profile.picture %>">
-                                        <% } %>
-                                </div>
+    <div class="select">
+        <%- include('../../component/component.main.retner.select.ejs', {select : 1}) %>
+    </div>
 
-                                <div class="member_explain">
-                                    <h5 class="member_name">
-                                        <% if (patient.profile.nickname !=null) { %>
-                                            <%= patient.profile.nickname %>님
-                                                <% } else { %>
-                                                    <%= patient.login_id %>님
-                                                        <% } %>
-                                    </h5>
-                                    <p class="member_caption">
-                                        <% if (patient.profile.hurt !=null) { %>
-                                            <%=patient.profile.hurt %>
-                                                <% } else { %>
-                                                    통증 정보 없음
+    <div class="membership">
+        <h5 id="today_ret">회원목록</h5>
+        <button id="member_all" onclick="location.href='/'">전체보기</button>
+    </div>
+
+    <div>
+        <% if (data.patients.length <=0) { %>
+            <div>회원이 존재하지 않습니다</div>
+
+            <% } else { %>
+
+                <% data.patients.forEach(patient=> { %>
+                    <% if(patient.profile !=null) { %>
+
+                        <div class="exercise">
+                            <div class="circle2"
+                                style="background-image:url('<% if (patient.profile.picture != null){ %><%= patient.profile.picture %><%}%>'); background-size: cover;">
+                            </div>
+
+                            <div id="gap3"></div>
+
+                            <div class="ex_explain">
+                                <h5 class="exercise_name">
+                                    <% if (patient.profile.nickname !=null) { %>
+                                        <%= patient.profile.nickname %> 님
+                                            <% } else { %>
+                                                <%= patient.login_id %> 님
                                                     <% } %>
-                                    </p>
-
-                                </div>
+                                </h5>
+                                <p class="exercise_caption">
+                                    <% if (patient.profile.hurt !=null) { %>
+                                        <%=patient.profile.hurt %>
+                                            <% } else { %>
+                                                통증 정보 없음
+                                                <% } %>
+                                </p>
 
                             </div>
-                            <% } %>
-                                <% }) %>
-                                    <% } %>
-        </div>
+
+                        </div>
+                        <br>
+
+                        <% } %>
+                            <% }) %>
+                                <% } %>
+    </div>
 
 </body>
 
