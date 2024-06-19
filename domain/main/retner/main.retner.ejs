@@ -28,7 +28,7 @@
 
     <div class="membership">
         <h5 id="today_ret">회원목록</h5>
-        <button id="member_all" onclick="location.href='/'">전체보기</button>
+        <button id="member_all" onclick="location.href='/retner/patient/list'">전체보기</button>
     </div>
 
     <div>
@@ -40,7 +40,7 @@
                 <% data.patients.forEach(patient=> { %>
                     <% if(patient.profile !=null) { %>
 
-                        <div class="exercise">
+                        <div class="exercise" onclick="location.href='/retner/patient/info'">
                             <div class="circle2"
                                 style="background-image:url('<% if (patient.profile.picture != null){ %><%= patient.profile.picture %><%}%>'); background-size: cover;">
                             </div>

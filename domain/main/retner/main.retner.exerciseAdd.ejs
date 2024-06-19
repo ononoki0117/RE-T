@@ -13,8 +13,6 @@
     <div>
         <%- include('../../component/component.header.ejs') %>
     </div>
-    
-    
 
     <div class="patientList">
         <div class="circle">
@@ -34,11 +32,11 @@
     <hr>
 
     <div class="exerciseAdd">
-        
+
         <h5 class="add">재활운동 추가하기</h5>
-        
+
         <br>
-        
+
         <div>
             <label for="name" class="addName">운동 이름</label>
             <div class="exercise_name">
@@ -47,15 +45,15 @@
         </div>
 
         <br>
-        
+
         <div>
             <div class="exercise-count">
-            <label for="count">운동 횟수</label>
-            <div class="count-btn">
-              <button id="decrementBtn">-</button>
-              <span id="numberDisplay">0</span>
-              <button id="incrementBtn">+</button>
-            </div>
+                <label for="count">운동 횟수</label>
+                <div class="count-btn">
+                    <button id="decrementBtn">-</button>
+                    <span id="numberDisplay">0</span>
+                    <button id="incrementBtn">+</button>
+                </div>
             </div>
         </div>
 
@@ -65,14 +63,14 @@
             <div>
                 <label for="note" class="addName">운동 부위</label><br>
                 <div class="exercise_name">
-                <input type="text" name="exercise_name" placeholder="운동 부위 입력">
+                    <input type="text" name="exercise_name" placeholder="운동 부위 입력">
                 </div>
             </div>
         </div>
 
         <div>
-              
-              <script>
+
+            <script>
                 // 초기 값 설정
                 let number = 0;
                 // 요소 선택
@@ -84,46 +82,43 @@
                 incrementBtn.addEventListener('click', increment);
                 // 숫자 감소 함수
                 function decrement() {
-                    if(number>0){
-                  number--;
-                  updateNumberDisplay();
-                }
+                    if (number > 0) {
+                        number--;
+                        updateNumberDisplay();
+                    }
                 }
                 // 숫자 증가 함수
                 function increment() {
-                  number++;
-                  updateNumberDisplay();
+                    number++;
+                    updateNumberDisplay();
                 }
                 // 숫자 화면 업데이트 함수
                 function updateNumberDisplay() {
-                  numberDisplay.textContent = number;
+                    numberDisplay.textContent = number;
                 }
-              </script>
+            </script>
         </div>
 
 
         <br>
-        
-        
-        
         <br>
-        
+
         <div>
             <label for="level" class="addName">운동 설명 링크</label><br>
             <div class="exercise_name">
-            <input type="text" name="exercise_name" placeholder="운동 설명 링크 입력">
+                <input type="text" name="exercise_name" placeholder="운동 설명 링크 입력">
             </div>
         </div>
-        
 
-</div>
 
-<div>
-<button class="saveBtn" type="submit"><div>저장하기</div></button>
+    </div>
 
-</div>
+    <div>
+        <button class="saveBtn" type="submit">
+            <div>저장하기</div>
+        </button>
 
-    
+    </div>
 
 </body>
 

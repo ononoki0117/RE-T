@@ -13,4 +13,15 @@ router.route('/retner/calendar')
 router.route('/retner/exercisePush')
     .get(controller.getRetnerAddExercise);
 
+router.route('/retner/patient/list')
+    .get(controller.getRetnerPatientList);
+
+router.route('/retner/chats/list')
+    .get(controller.getRetnerEveryChatList);
+
+router.route('/retner/patient/info')
+    .get(controller.getRetnerPatientInfo)
+
+router.route('/retner/patient/add')
+    .get(controller.getRetnerPateintEnter);
 module.exports = router;
