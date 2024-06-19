@@ -2,85 +2,94 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RE:T : 회원가입</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel='stylesheet'
-        href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap'>
-    <link rel="stylesheet" href="/style/sign-up/sign-up/style.css">
+    <%- include("../../component/component.head.html") %>
+        <title>RE:T</title>
+
+        <link rel="stylesheet" href="/style/sign-up/style.css">
+
 </head>
 
-<body>
-    <div class="screen-1">
-        <h4 stroke="2" class="app">RE:T</h4>
-        <hr>
-        <h2 id="sign">본인인증</h2>
 
-        <form method="post" action="/sign-up/patient/enter-information">
-            <div class="container">
-                <label for="name" class="name">* 이름<br>
-                    <input type="text" name="login_id" placeholder="이름입력" /><br><br>
-                </label>
-                <br>
-                <div class="birth">
-                    <label for="birth" class="birth_label">* 주민등록번호 앞 7자리<br>
-                        <table id="brith_table">
-                            <tr>
-                                <td>
-                                    <input type="number" name="birth" class="birth_input" maxlength="7"
-                                        placeholder="생년월일입력" oninput='handleOnInput(this, 6)' />
-                                </td>
-                                <td class="dash"></td>
-                                <td>
-                                    <input type="number" name="birth" class="birth_input" maxlength="1" placeholder="0"
-                                        oninput='handleOnInput(this, 1)' />
-                                </td>
-                                <td class="resident-num"></td>
-                            </tr>
-                        </table>
-                    </label><br><br>
-                </div>
-                <br>
-                <div id="phone_number">
-                    <label for="phone" class="phone">* 휴대전화번호<br>
-                        <table id="phone_tab">
-                            <tr>
-                                <td>
-                                    <select id="phone_agency">
-                                        <option value="" disabled selected>통신사</option>
-                                        <option value="SKT">SKT</option>
-                                        <option value="LGU+">LGU+</option>
-                                        <option value="KT">KT</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="number" class="phone_num" maxlength="3" placeholder="010"
-                                        oninput='handleOnInput(this, 3)'>
-                                </td>
-                                <td class="dash"></td>
-                                <td>
-                                    <input type="number" class="phone_num" maxlength="4"
-                                        oninput='handleOnInput(this, 4)'>
-                                </td>
-                                <td class="dash"></td>
-                                <td>
-                                    <input type="number" class="phone_num" maxlength="4"
-                                        oninput='handleOnInput(this, 4)'>
-                                </td>
-                            </tr>
-                        </table>
-                    </label><br> <br>
-                </div>
-
-
-            </div>
-
-            <button class="confirm-sign-up">저장하기</button>
-        </form>
-
+<body class="screen-1">
+    <div>
+        <%- include('../../component/component.header.ejs') %>
     </div>
+
+    <h3 id="agree_title">약관동의</h3>
+
+    <form method="post" action="/sign-up/patient/enter-information">
+
+        <div class="field_container">
+            <label for="name" class="name">이름</label>
+            <input type="text" name="login_id" placeholder="이름입력">
+            <hr class="underline">
+        </div>
+
+        <br>
+
+        <div class="field_container">
+            <label for="birth" class="name">주민등록번호 앞 7자리</label>
+
+            <div class="horizontal">
+                <div>
+                    <input type="number" name="birth" class="birth_input" maxlength="7" placeholder="생년월일입력"
+                        oninput='handleOnInput(this, 6)'>
+                    <hr class="underline">
+                </div>
+
+                <div>-</div>
+
+                <div>
+                    <input type="number" name="birth" class="birth_input" maxlength="1" placeholder="0"
+                        oninput='handleOnInput(this, 1)'>
+                    <hr class="underline">
+                </div>
+                <div class="resident-num"></div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="field_container">
+            <label for="phone" class="name">휴대전화번호</label>
+
+            <div class="horizontal">
+                <div>
+                    <select id="phone_agency">
+                        <option value="" disabled selected>통신사</option>
+                        <option value="SKT">SKT</option>
+                        <option value="LGU+">LGU+</option>
+                        <option value="KT">KT</option>
+                    </select>
+                    <hr class="underline">
+                </div>
+
+                <div>
+                    <input type="number" class="phone_num" maxlength="3" placeholder="010"
+                        oninput='handleOnInput(this, 3)'>
+                    <hr class="underline">
+                </div>
+
+                <div>-</div>
+
+                <div>
+                    <input type="number" class="phone_num" maxlength="4" oninput='handleOnInput(this, 4)'>
+                    <hr class="underline">
+                </div>
+
+                <div>-</div>
+
+                <div>
+                    <input type="number" class="phone_num" maxlength="4" oninput='handleOnInput(this, 4)'>
+                    <hr class="underline">
+                </div>
+            </div>
+        </div>
+
+
+        <button class="confirm">저장하기</button>
+    </form>
+
     <script>
         function handleOnInput(el, maxlength) {
             if (el.value.length > maxlength) {
