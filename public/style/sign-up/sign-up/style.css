@@ -78,6 +78,8 @@ img.logo {
 .screen-1 .password,
 .screen-1 .retner_verification,
 .screen-1 .retner_code,
+.screen-1 .retner_verification,
+.screen-1 .retner_code,
 .screen-1 .doctor {
   flex: 1;
   background: #f1f1f1;
@@ -100,7 +102,6 @@ img.logo {
   border: none;
   background-color: transparent;
   text-decoration-line: underline;
-  width: 100%;
   height: 1.5em;
   padding: 0.5em;
   box-sizing: border-box;
@@ -236,8 +237,7 @@ button {
 
 .code_box{
   display: flex;
-  justify-content: center;
-  gap : 170px;
+  justify-content: space-between;
 }
 
 .code_p{
