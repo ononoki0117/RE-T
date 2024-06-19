@@ -301,24 +301,11 @@ body {
     margin-bottom: 9px;
 }
 
-.screen-1 .circle {
-    margin: 0;
-    width: 52px;
-    height: 52px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid rgb(151, 142, 139);
-    display: block;
-}
+
 
 .screen-1 .circle2 {
-    display: block;
-    width: 47.48px;
-    height: 47.48px;
+    width: 52px;
+    height: 52px;
     background-color: rgb(221, 221, 221);
     border-radius: 50%;
     justify-content: center;
@@ -329,6 +316,8 @@ body {
     right: auto;
     bottom: auto;
     top: auto;
+    vertical-align: middle;
+
 }
 
 .circle2 img {
@@ -589,11 +578,17 @@ body {
     width : 339px;
     padding-left: 21px;
     padding-right : 21px;
+    padding-top : 5px;
     padding-bottom : 5px;
+    display : flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: center;
   }
   #retner_name {
     color : #fcfcfc;
-    margin-top : 29px;
+    margin-top : 5px;
+    margin-bottom: 0;
     font-size : 16px;
   }
   #box {
@@ -645,35 +640,8 @@ body {
     gap: 16px;
     justify-content: center;
   }
-  .screen-1 .ret_patient {
-    font-size: 11px;
-    color : #23262F;
-    border-radius: 10px;
-    border-width: 0.5px;
-    background-color : #ffffff;
-    width : 90px;
-    height : 28px;
-  }
-  .screen-1 .ret_calen {
-    font-size: 11px;
-    color : #ffffff;
-    border-radius: 10px;
-    border-width: 0.5px;
-    background-color : #546FFF;
-    width : 90px;
-    height : 28px;
-  }
-  .screen-1 .ret_chatlist {
-    font-size: 11px;
-    color : #23262F;
-    border-radius: 10px;
-    border-width: 0.5px;
-    background-color : #ffffff;
-    width : 90px;
-    height : 28px;
-  }
   .screen-1 .select{
-    margin-top:25px;
+    margin-top : 15px;
     margin-bottom : 25px;
     justify-content: center;
     align-items: center;
@@ -714,10 +682,15 @@ body {
     position: relative;
   }
   .month_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
     padding-top : 10px;
   }
   .month_name {
     font-size : 16px;
+    font-weight : bold;
   }
 
   .screen-1 .calendar_patient{
@@ -810,4 +783,16 @@ body {
     position: relative;
     
     margin: 46px auto 0 auto;
+  }
+  .membership{
+    display : flex;
+  }
+  #member_all {
+    background-color: transparent;
+    color : #546FFF;
+    text-decoration-line: underline;
+    border : 0;
+    display: inline-block;
+    font-size : 10px;
+    margin-left : auto;
   }
