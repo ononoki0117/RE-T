@@ -135,3 +135,6 @@ dist
 **/.DS_Store
 **/._.DS_Store
 .DS_Store
+
+# profile image
+/public/img/profile

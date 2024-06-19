@@ -25,31 +25,37 @@
         <br><br><br><br>
 
         <div class="container">
-            <!--프로필 사진-->
-            <div class="circle">
-                <div class="circle2" onclick="document.getElementById('fileInput').click()">
-                    <input type="file" id="fileInput" accept="image/*">
-                    <img id="imagePreview">
+            <form action="/sign-up/patient/profile" method="post" enctype="multipart/form-data">
+                <!--프로필 사진-->
+                <div class="circle">
+                    <div class="circle2" onclick="document.getElementById('fileInput').click()">
+                        <input type="file" id="fileInput" name="picture" accept="image/*">
+                        <img id="imagePreview">
+                    </div>
                 </div>
-            </div>
-            <script>
-                document.getElementById('fileInput').addEventListener('change', function (event) {
-                    const file = event.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function (e) {
-                            const imagePreview = document.getElementById('imagePreview');
-                            imagePreview.src = e.target.result;
-                            imagePreview.style.display = 'block';
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-            </script>
-            <br><br><br><br>
-            <!--닉네임 입력 칸-->
-            <form action="/sign-up/patient/complete" method="post">
-                <input type="text" name="name" placeholder="닉네임 입력" /><br><br>
+
+                <script>
+                    document.getElementById('fileInput').addEventListener('change', function (event) {
+                        const file = event.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = function (e) {
+                                const imagePreview = document.getElementById('imagePreview');
+                                imagePreview.src = e.target.result;
+                                imagePreview.style.display = 'block';
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                </script>
+
+                <br><br><br><br>
+                <!--닉네임 입력 칸-->
+
+                <input type="text" name="nickname" placeholder="닉네임 입력" />
+
+                <br><br>
+
                 <div class="line"></div>
 
                 <div id="gap1"></div>

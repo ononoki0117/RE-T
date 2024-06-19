@@ -78,6 +78,8 @@ img.logo {
 .screen-1 .password,
 .screen-1 .retner_verification,
 .screen-1 .retner_code,
+.screen-1 .retner_verification,
+.screen-1 .retner_code,
 .screen-1 .doctor {
   flex: 1;
   background: #f1f1f1;
