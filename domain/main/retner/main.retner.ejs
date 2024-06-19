@@ -7,38 +7,36 @@
         <link rel="stylesheet" href="/style/main/style.css">
 </head>
 
-<body>
-    <div class="screen-1">
+<body class = "screen-1">
         <div>
             <%- include('../../component/component.header.ejs') %>
         </div>
-
+        <h5 stroke = "2" class = "date">SEPTEMBER 8</h5>
         <div>
-            <%- include('../../component/component.calendar.weekly.ejs', {date: data.date}) %>
+            <%- include('../../component/component.retner.head.ejs') %>
         </div>
+        <br>
 
-        <div id="ret_gap"></div>
-
-        <div class="retner">
-            <h5 id="ret_title">안녕하세요 <%= data.user.login_id %>님!</h5>
-            <hr id="ret_line">
-            <p id="code">나의 리트너 코드 : <%= data.user.staff_id %>
-            </p>
-
-            <div class="message">
-                <p class="today_medi">오늘의 진료 : <%= data.message.today %>건</p>
-                <p class="today_chat">새로운 채팅 : <%= data.message.new_chat %>건</p>
-            </div>
-        </div>
-
-        <div class="list">
+        <div class="select">
             <%- include('../../component/component.main.retner.select.ejs', {select : 1}) %>
         </div>
 
-        <div>
-            <h5 id="member_list">회원목록</h5>
-            <div id="gap2"></div>
+        <div class = "membership">
+            <h5 id="today_ret">회원목록</h5>
             <button id="member_all">전체보기</button>
+        </div>
+
+        <div class="exercise">
+            <div class="circle2">
+                <img id="imagePreview">
+            </div>
+    
+            <div id="gap3"></div>
+    
+            <div class="ex_explain">
+                <h5 class="exercise_name">서울 믿음소망 정형외과</h5>
+                <p class="exercise_caption">이용섭 전문의</p>
+            </div>
         </div>
 
         <div>
@@ -79,7 +77,6 @@
                                     <% } %>
         </div>
 
-    </div>
 </body>
 
 </html>

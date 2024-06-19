@@ -1,13 +1,13 @@
 <% if (select==1) { %>
-    <button type="button" class="list_sel" onclick="location.href='/retner/main'">회원 목록</button>
-    <button type="button" class="list_un" onclick="location.href='/retner/calendar'">예약캘린더</button>
-    <button type="button" class="list_un" onclick="location.href='/retner/chats'">채팅 목록</button>
+    <button type="button" class="today_ret" onclick="location.href='/retner/main'">회원 목록</button>
+    <button type="button" class="today_un" onclick="location.href='/retner/calendar'">예약캘린더</button>
+    <button type="button" class="today_un" onclick="location.href='/retner/chats'">채팅 목록</button>
     <% } else if (select==2) { %>
-        <button type="button" class="list_un" onclick="location.href='/retner/main'">회원 목록</button>
-        <button type="button" class="list_sel" onclick="location.href='/retner/calendar'">예약캘린더</button>
-        <button type="button" class="list_un" onclick="location.href='/retner/chats'">채팅 목록</button>
+        <button type="button" class="today_un" onclick="location.href='/retner/main'">회원 목록</button>
+        <button type="button" class="today_ret" onclick="location.href='/retner/calendar'">예약캘린더</button>
+        <button type="button" class="today_un" onclick="location.href='/retner/chats'">채팅 목록</button>
         <% } else { %>
-            <button type="button" class="list_un" onclick="location.href='/retner/main'">회원 목록</button>
-            <button type="button" class="list_un" onclick="location.href='/retner/calendar'">예약캘린더</button>
-            <button type="button" class="list_sel" onclick="location.href='/retner/chats'">채팅 목록</button>
+            <button type="button" class="today_un" onclick="location.href='/retner/main'">회원 목록</button>
+            <button type="button" class="today_un" onclick="location.href='/retner/calendar'">예약캘린더</button>
+            <button type="button" class="today_ret" onclick="location.href='/retner/chats'">채팅 목록</button>
             <%} %>
