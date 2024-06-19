@@ -44,8 +44,12 @@ const confirmVerification = function (req, res) {
 
 // 환자 ID 패스워드 입력 값 검증, 리트너 코드 DB 값 검증, 리트너 보유 환자 배열 안에 환자 추가
 const confirmPrivacyInformation = function (req, res) {
+    const hurt = req.body.hurt;
+
     // model에 값 주입
     user.model = req.body;
+    delete user.model.hurt;
+
     user.model.kind = 'patient';
     console.log(user.model);
 
@@ -71,6 +75,8 @@ const confirmPrivacyInformation = function (req, res) {
         .then((result) => {
             console.log(`프로미스의 결과값? ${JSON.stringify(result)}`);
             req.session.user = user.model;
+            req.session.hurt = hurt;
+
             console.log(req.session.user);
 
             res.render('./sign-up/patient/sign-up.patient.profile.ejs')
@@ -86,11 +92,13 @@ const confirmPrivacyInformation = function (req, res) {
 const confirmProfile = function (req, res) {
     user.model = req.session.user;
     imagepath = '/' + req.file.path;
+    imagepath = imagepath.replace("/public/img/", "/img/");
 
     // user profile에 값 주입
     user.model.profile = {
         picture: imagepath,
-        nickname: req.body.nickname
+        nickname: req.body.nickname,
+        hurt: req.session.hurt,
     }
 
     console.log(JSON.stringify(user.model.profile));
@@ -98,11 +106,15 @@ const confirmProfile = function (req, res) {
     user.setProfile()
         .then((result) => {
             console.log('프로파일 에딧 성공');
+            res.redirect('/');
+        })
+        .catch(() => {
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+            res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
         })
 
     console.log('환자 사진 등록 완료, 홈 화면으로 이동');
 
-    res.redirect('/');
 }
 
 // agree를 건너뛰고 다른 페이지부터 접근하면(get방식으로 접근하면), 혹은 세션에 있는 값이 잘못되면 호출됨

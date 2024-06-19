@@ -11,7 +11,7 @@ const checkUserLogin = function (req, res) {
         }
         else if (req.session.user.kind == "retner") {
             // 리트너일 경우
-            res.render('./main/retner/main.retner.ejs')
+            res.redirect('/retner/main')
         }
     } else {
         res.redirect('/login');

@@ -2,30 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <%- include("../../component/component.head.html") %>
         <title>RE:T main</title>
 
         <link rel="stylesheet" href="/style/RET_main/style.css">
 </head>
+
 <body>
     <div class="screen-1">
-        <h4 stroke = "2" class = "app">RE:T</h4>
-        <hr stroke = "1" class = "line">
-        <h5 stroke = "2" class = "date">SEPTEMBER 8</h5>
-        <div id = "ret_gap"></div>
+        <div>
+            <%- include('../../component/component.header.ejs') %>
+        </div>
 
-        <div class = "retner">
-            <h5 id = "ret_title">안녕하세요 이용섭님!</h5>
-            <hr id = "ret_line">
-            <p id = "code">나의 리트너 코드 : A7S8DF</p>
-            
-            <div class = "message">
-                <p class = "today_medi">오늘의 진료 : 3건</p>
-                <p class = "today_chat">새로운 채팅 : 2건</p>
+        <div>
+            <%- include('../../component/component.calendar.weekly.ejs', {date: data.date}) %>
+        </div>
+
+        <div id="ret_gap"></div>
+
+        <div class="retner">
+            <h5 id="ret_title">안녕하세요 <%= data.user.login_id %>님!</h5>
+            <hr id="ret_line">
+            <p id="code">나의 리트너 코드 : <%= data.user.staff_id %>
+            </p>
+
+            <div class="message">
+                <p class="today_medi">오늘의 진료 : <%= data.message.today %>건</p>
+                <p class="today_chat">새로운 채팅 : <%= data.message.new_chat %>건</p>
             </div>
         </div>
 
@@ -34,18 +37,51 @@
             <button type="button" class="list_un">예약캘린더</button>
             <button type="button" class="list_un">채팅목록</button>
         </div>
+
         <div>
-            <h5 id = "member_list">회원목록</h5>
-            <div id = "gap2"></div>
-            <button id = "member_all">전체보기</button>
+            <h5 id="member_list">회원목록</h5>
+            <div id="gap2"></div>
+            <button id="member_all">전체보기</button>
         </div>
-        <div class = "member_box">
-            <div class="image"></div>
-            <div class = "member_explain">
-              <h5 class = "member_name">김도영님</h5>
-              <p class = "member_caption">허리 디스크 환자</p>
-            </div>
-          </div>
+
+        <div>
+            <% if (data.patients.length <=0) { %>
+                <div>없음</div>
+
+                <% } else { %>
+                    <% data.patients.forEach(patient=> { %>
+                        <% if(patient.profile !=null) { %>
+                            <div class="member_box">
+                                <div class="image">
+                                    <% if (patient.profile.picture !=null) { %>
+                                        <img src="<%= patient.profile.picture %>">
+                                        <% } %>
+                                </div>
+
+                                <div class="member_explain">
+                                    <h5 class="member_name">
+                                        <% if (patient.profile.nickname !=null) { %>
+                                            <%= patient.profile.nickname %>님
+                                                <% } else { %>
+                                                    <%= patient.login_id %>님
+                                                        <% } %>
+                                    </h5>
+                                    <p class="member_caption">
+                                        <% if (patient.profile.hurt !=null) { %>
+                                            <%=patient.profile.hurt %>
+                                                <% } else { %>
+                                                    통증 정보 없음
+                                                    <% } %>
+                                    </p>
+
+                                </div>
+
+                            </div>
+                            <% } %>
+                                <% }) %>
+                                    <% } %>
+        </div>
+
     </div>
 </body>
 

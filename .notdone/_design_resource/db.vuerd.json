@@ -228,7 +228,7 @@
           "active": false,
           "left": 954.8046,
           "top": 524.7765,
-          "zIndex": 5,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60
         },
@@ -605,7 +605,7 @@
           "active": false,
           "left": 1469.75,
           "top": 373.25,
-          "zIndex": 6,
+          "zIndex": 4,
           "widthName": 66.40188598632812,
           "widthComment": 60
         },
@@ -713,7 +713,7 @@
           "active": false,
           "left": 457.4442,
           "top": 985.4999,
-          "zIndex": 8,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -890,7 +890,7 @@
           "active": false,
           "left": 394,
           "top": 554.25,
-          "zIndex": 7,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 60
         },
