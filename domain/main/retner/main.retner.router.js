@@ -10,4 +10,7 @@ router.route('/retner/chats')
 router.route('/retner/calendar')
     .get(controller.getRetnerCallender);
 
+router.route('/retner/exercisePush')
+    .get(controller.getRetnerAddExercise);
+
 module.exports = router;
