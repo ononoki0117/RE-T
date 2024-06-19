@@ -70,18 +70,20 @@ const confirmPrivacyInformation = function (req, res) {
             console.log(`프로미스의 결과값? ${JSON.stringify(result)}`);
             res.render('./sign-up/patient/sign-up.patient.profile.ejs')
         })
-        .catch((result) => {
-            console.log(`망한 프로미스의 결과값? ${JSON.stringify(result)}`)
+        .catch((err) => {
+            console.log(`망한 프로미스의 결과값? ${JSON.stringify(err)}`)
             res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-            res.write("<script>alert('ID가 중복됩니다! 다른 아이디를 사용해 주세요!');  history.go(-1);</script>");
+            res.write(`<script>alert('${err}');  history.go(-1);</script>`);
         })
 }
 
 // 환자 프로필 사진 서버에 저장 후 회원가입 완료 절차
 const confirmProfile = function (req, res) {
+
+
     console.log('환자 사진 등록 완료, 홈 화면으로 이동');
 
-    res.send('가입 완료! 홈 화면이 될 화면!!');
+    res.redirect('/');
 }
 
 // agree를 건너뛰고 다른 페이지부터 접근하면(get방식으로 접근하면), 혹은 세션에 있는 값이 잘못되면 호출됨

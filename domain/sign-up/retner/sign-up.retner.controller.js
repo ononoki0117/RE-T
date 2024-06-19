@@ -5,7 +5,7 @@ const redirectToStart = function (req, res) {
     res.redirect('/sign-up/retner/agree');
 }
 
-// 환자 회원가입 시작 - 환자 회원가입은 항상 agree 부터 시작해야함 -> 다른 페이지로 get이 들어오면 여기로 빠져 들어오게 해야함!
+// 리트너 회원가입 시작 - 리트너 회원가입은 항상 agree 부터 시작해야함 -> 다른 페이지로 get이 들어오면 여기로 빠져 들어오게 해야함!
 const startSignUp = function (req, res) {
     console.log('환자 회원가입 시작');
 
@@ -33,14 +33,14 @@ const confirmAgreement = function (req, res) {
     }
 }
 
-// 환자 본인 인증 - 실제 api를 쓰지는 않은 것임! 하지만 파라미터 값 인증하는 부분은 들어가야 함
+// 리트너 본인 인증 - 실제 api를 쓰지는 않은 것임! 하지만 파라미터 값 인증하는 부분은 들어가야 함
 const confirmVerification = function (req, res) {
     console.log('환자 본인인증 확인, 개인정보입력으로 이동');
 
     res.render('./sign-up/retner/sign-up.retner.enter.ejs');
 }
 
-// 환자 ID 패스워드 입력 값 검증, 리트너 코드 DB 값 검증, 리트너 보유 환자 배열 안에 환자 추가
+// 리트너 ID 패스워드 입력 값 검증, 리트너 코드 DB 값 검증, 리트너 보유 환자 배열 안에 환자 추가
 const confirmPrivacyInformation = function (req, res) {
     // model에 값 주입
     user.model = req.body;
