@@ -11,49 +11,26 @@
     <div>
         <%- include('../../component/component.header.ejs') %>
     </div>
-    <h5 stroke="2" class="date">SEPTEMBER 8</h5>
+
+    <div>
+        <%- include('../../component/component.calendar.string.ejs' ) %>
+    </div>
+
     <div>
         <%- include('../../component/component.retner.head.ejs') %>
     </div>
 
-    <hr>
 
-    <div class="patientList">
-        <div class="circle">
-            <div class="circle2">
-                <img id="imagePreview">
-            </div>
-        </div>
-
-        <div id="gap3"></div>
-
-        <div class="ex_explain">
-            <h5 class="exercise_name">정인화 님</h5>
-            <p class="new_message">새로운 메세지 (3)</p>
-        </div>
+    <div class="select">
+        <%- include('../../component/component.main.retner.select.ejs', {select : 3}) %>
     </div>
+
+
     <div class="membership">
         <h5 id="today_ret">최근 채팅 목록</h5>
         <button id="member_all">전체보기</button>
     </div>
-    <div class="patientList">
-        <div class="circle">
-            <div class="circle2">
-                <img id="imagePreview">
-            </div>
-        </div>
 
-        <div id="gap3"></div>
-
-        <div class="ex_explain">
-            <h5 class="exercise_name">채승룡 님</h5>
-            <p class="new_message">새로운 메세지 (1)</p>
-        </div>
-    </div>
-    <div class="membership">
-        <h5 id="today_ret">최근 채팅 목록</h5>
-        <button id="member_all">전체보기</button>
-    </div>
     <div class="patientList">
         <div class="circle">
             <div class="circle2">
@@ -69,73 +46,6 @@
         </div>
     </div>
 
-    <hr>
-
-    <div class="patientList">
-        <div class="circle">
-            <div class="circle2">
-                <img id="imagePreview">
-            </div>
-        </div>
-
-        <div id="gap3"></div>
-
-        <hr>
-
-        <div class="patientList">
-            <div class="circle">
-                <div class="circle2">
-                    <img id="imagePreview">
-                </div>
-            </div>
-
-            <div id="gap3"></div>
-
-            <<<<<<< Updated upstream <div>
-                <h5 id="chat_member_list">최근 채팅 목록</h5>
-                <div id="gap2"></div>
-                <button id="chat_all">전체보기</button>
-        </div>
-        =======
-        <div class="membership">
-            <h5 id="today_ret">최근 채팅 목록</h5>
-            <button id="member_all">전체보기</button>
-        </div>
-
-        <div class="patientList">
-            <div class="circle">
-                <div class="circle2">
-                    <img id="imagePreview">
-                </div>
-            </div>
-
-            <div id="gap3"></div>
-
-            <div class="ex_explain">
-                <h5 class="exercise_name">채승룡 님</h5>
-                <p class="new_message">새로운 메세지 (1)</p>
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="patientList">
-            <div class="circle">
-                <div class="circle2">
-                    <img id="imagePreview">
-                </div>
-            </div>
-
-            <div id="gap3"></div>
-
-            <div class="ex_explain">
-                <h5 class="exercise_name">정인화 님</h5>
-                <p class="new_message">새로운 메세지 (3)</p>
-            </div>
-        </div>
-
-
-        >>>>>>> Stashed changes
 </body>
 
 </html>

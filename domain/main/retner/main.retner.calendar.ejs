@@ -14,26 +14,23 @@
     </div>
 
     <div>
-        <<<<<<< Updated upstream <%- include('../../component/component.calendar.weekly.ejs', {date: data.date}) %>
-            =======
-            <%- include('../../component/component.calendar.string.ejs' ) %>
-                >>>>>>> Stashed changes
+        <%- include('../../component/component.calendar.string.ejs' ) %>
     </div>
 
     <div>
         <%- include('../../component/component.retner.head.ejs') %>
     </div>
 
-    <<<<<<< Updated upstream <div>
+    <div class="select">
         <%- include('../../component/component.main.retner.select.ejs', {select : 2}) %>
-            </div>
+    </div>
 
-            <div class="membership">
-                <h5 id="today_ret">예약 캘린더</h5>
-                <button id="member_all">전체보기</button>
-            </div>
+    <div class="membership">
+        <h5 id="today_ret">예약 캘린더</h5>
+        <button id="member_all">전체보기</button>
+    </div>
 
-            <%- include('../../component/component.calendar.monthly.ejs', {calendar : data.calendar}) %>
+    <%- include('../../component/component.calendar.monthly.ejs', {calendar : data.calendar}) %>
 </body>
 
 </html>
