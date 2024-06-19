@@ -68,4 +68,8 @@ const getRetnerChatList = function (req, res) {
     res.render('./main/retner/main.retner.chat.ejs');
 }
 
-module.exports = { getRetnerMainPage, getRetnerCallender, getRetnerChatList };
+const getRetnerAddExercise = function(req, res) {
+    res.render ('./main/retner/main.retner.exercisePush.ejs');
+}
+
+module.exports = { getRetnerMainPage, getRetnerCallender, getRetnerChatList, getRetnerAddExercise };
