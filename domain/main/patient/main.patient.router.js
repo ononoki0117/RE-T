@@ -18,4 +18,8 @@ router.route('/patient/add')
     .get(controller.getPatientExplan)
     .post(controller.postPatientExplan);
 
+router.route('/patient/calendar/info')
+    .get(controller.getPatientCaledarPlan)
+
+
 module.exports = router;

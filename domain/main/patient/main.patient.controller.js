@@ -107,6 +107,9 @@ const getPatientDiary = function (req, res) {
             date: { $gte: startOfDay, $lte: endOfDay }
         };
 
+        console.log(startOfDay);
+        console.log(endOfDay);
+
         connection.connect()
             .then(() => {
                 const db = connection.getDB();
@@ -122,7 +125,7 @@ const getPatientDiary = function (req, res) {
                         db.collection('DIARY')
                             .findOne(diaryquery)
                             .then((result) => {
-                                console.log(result);
+                                console.log('diaryq ' + diaryquery + "  " + result);
                                 diary = result;
                                 let i = 0;
                                 exercises.forEach(exercise => {
@@ -215,10 +218,13 @@ const postPatientDiary = function (req, res) {
 
             if (req.session.diary != null) {
                 diary._id = req.session.diary._id;
+                diary.date = req.session.diary.date;
             }
             db.collection('DIARY')
                 .updateOne(
-                    { _id: new ObjectId(diary._id) }, { $set: { diary: req.body.diary, hurt: req.body.hurt } }
+                    { _id: new ObjectId(diary._id) },
+                    { $set: { diary: req.body.diary, hurt: req.body.hurt, date: diary.date, patient_id: diary.patient_id } },
+                    { upsert: true }
                 )
                 //save.save(db, diary, 'DIARY')
                 .then((result) => {
@@ -286,7 +292,7 @@ const getPatientcalendar = function (req, res) {
 
     console.log(calendar);
 
-    res.render('./main/patient/main.patient.calendar.ejs', { calendar, name, day: null });
+    res.render('./main/patient/main.patient.calendar.ejs', { calendar, name, day: null, year: currentDate.getFullYear(), month: currentDate.getMonth() + 1 });
 }
 
 const getPatientExplan = function (req, res) {
@@ -328,4 +334,79 @@ const postPatientExplan = function (req, res) {
         })
 }
 
-module.exports = { getPatientMainPage, getPatientDiary, getPatientHistory, getPatientcalendar, postPatientDiary, getPatientExplan, postPatientExplan };
+const getPatientCaledarPlan = function (req, res) {
+    const year = Number(req.query.year);
+    const month = Number(req.query.month) - 1
+    const date = Number(req.query.date);
+
+    const target = new Date(year, month, date);
+
+    console.log(target);
+
+    const startOfDay = new Date(target.setHours(0, 0, 0, 0));
+    const endOfDay = new Date(target.setHours(23, 59, 59, 999));
+
+    const id = req.session.user.login_id;
+
+    const explainquery = {
+        patient_id: id,
+        date: { $gte: startOfDay, $lte: endOfDay }
+    };
+
+    const diaryquery = {
+        patient_id: id,
+        date: { $gte: startOfDay, $lte: endOfDay }
+    };
+
+
+
+    connection.connect()
+        .then(() => {
+            const db = connection.getDB();
+
+            db.collection('EXPLAN')
+                .find(explainquery)
+                .toArray()
+                .then((result) => {
+                    console.log(result);
+                    exercises = result;
+                    req.session.exercises = exercises;
+
+                    db.collection('DIARY')
+                        .findOne(diaryquery)
+                        .then((result) => {
+                            console.log(result);
+                            diary = result;
+                            let i = 0;
+                            exercises.forEach(exercise => {
+                                if (exercise.complete) i++;
+                            });
+
+                            const progress = i / exercises.length * 100;
+                            req.session.progress = progress;
+                            req.session.diary = diary;
+                            res.render('./main/patient/main.patient.calendar.info.ejs', {
+                                data:
+                                {
+                                    progress: progress,
+                                    date: target,
+                                    exercises: exercises,
+                                    diary: diary
+                                }
+                            });
+                        })
+                })
+                .catch((err) => {
+                    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+                    res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
+                })
+        })
+        .catch((err) => {
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+            res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
+        })
+}
+
+
+
+module.exports = { getPatientMainPage, getPatientDiary, getPatientHistory, getPatientcalendar, postPatientDiary, getPatientExplan, postPatientExplan, getPatientCaledarPlan };
