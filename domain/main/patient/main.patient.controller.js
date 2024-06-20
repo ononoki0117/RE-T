@@ -77,85 +77,85 @@ const getPatientMainPage = function (req, res) {
 }
 
 const getPatientDiary = function (req, res) {
-    if (req.session.exercises && req.session.diary) {
-        res.render('./main/patient/main.patient.diary.ejs', {
-            data:
-            {
-                diary: req.session.diary,
-                progress: req.session.progress,
-                exercises: req.session.exercises
-            }
+    // if (req.session.exercises && req.session.diary) {
+    //     res.render('./main/patient/main.patient.diary.ejs', {
+    //         data:
+    //         {
+    //             diary: req.session.diary,
+    //             progress: req.session.progress,
+    //             exercises: req.session.exercises
+    //         }
+    //     })
+    // }
+    // else {
+    const id = req.session.user.login_id;
+
+    const today = new Date();
+    const startOfDay = new Date(today.setHours(0, 0, 0, 0));
+    const endOfDay = new Date(today.setHours(23, 59, 59, 999));
+
+    let exercises = null;
+    let diary = null;
+
+    const explainquery = {
+        patient_id: id,
+        date: { $gte: startOfDay, $lte: endOfDay }
+    };
+
+    const diaryquery = {
+        patient_id: id,
+        date: { $gte: startOfDay, $lte: endOfDay }
+    };
+
+    console.log(startOfDay);
+    console.log(endOfDay);
+
+    connection.connect()
+        .then(() => {
+            const db = connection.getDB();
+
+            db.collection('EXPLAN')
+                .find(explainquery)
+                .toArray()
+                .then((result) => {
+                    console.log(result);
+                    exercises = result;
+                    req.session.exercises = exercises;
+
+                    db.collection('DIARY')
+                        .findOne(diaryquery)
+                        .then((result) => {
+                            console.log('diaryq ' + diaryquery + "  " + result);
+                            diary = result;
+                            let i = 0;
+                            exercises.forEach(exercise => {
+                                if (exercise.complete) i++;
+                            });
+
+                            const progress = i / exercises.length * 100;
+                            req.session.progress = progress;
+                            req.session.diary = diary;
+                            res.render('./main/patient/main.patient.diary.ejs', {
+                                data:
+                                {
+                                    progress: progress,
+                                    date: today,
+                                    exercises: exercises,
+                                    diary: diary
+                                }
+                            });
+                        })
+                })
+                .catch((err) => {
+                    res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+                    res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
+                })
         })
-    }
-    else {
-        const id = req.session.user.login_id;
-
-        const today = new Date();
-        const startOfDay = new Date(today.setHours(0, 0, 0, 0));
-        const endOfDay = new Date(today.setHours(23, 59, 59, 999));
-
-        let exercises = null;
-        let diary = null;
-
-        const explainquery = {
-            patient_id: id,
-            date: { $gte: startOfDay, $lte: endOfDay }
-        };
-
-        const diaryquery = {
-            patient_id: id,
-            date: { $gte: startOfDay, $lte: endOfDay }
-        };
-
-        console.log(startOfDay);
-        console.log(endOfDay);
-
-        connection.connect()
-            .then(() => {
-                const db = connection.getDB();
-
-                db.collection('EXPLAN')
-                    .find(explainquery)
-                    .toArray()
-                    .then((result) => {
-                        console.log(result);
-                        exercises = result;
-                        req.session.exercises = exercises;
-
-                        db.collection('DIARY')
-                            .findOne(diaryquery)
-                            .then((result) => {
-                                console.log('diaryq ' + diaryquery + "  " + result);
-                                diary = result;
-                                let i = 0;
-                                exercises.forEach(exercise => {
-                                    if (exercise.complete) i++;
-                                });
-
-                                const progress = i / exercises.length * 100;
-                                req.session.progress = progress;
-                                req.session.diary = diary;
-                                res.render('./main/patient/main.patient.diary.ejs', {
-                                    data:
-                                    {
-                                        progress: progress,
-                                        date: today,
-                                        exercises: exercises,
-                                        diary: diary
-                                    }
-                                });
-                            })
-                    })
-                    .catch((err) => {
-                        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-                        res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
-                    })
-            })
-            .catch((err) => {
-                res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
-                res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
-            })
-    }
+        .catch((err) => {
+            res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' })
+            res.write("<script>alert('서버에 문제가 생겼습니다, 다시 시도해 주세요');  history.go(-1);</script>");
+        })
+    // }
 }
 
 const postPatientDiary = function (req, res) {
