@@ -1,7 +1,8 @@
 <div class="ret_today">
-    <h5 id="retner_name">안녕하세요! 이용섭 님!</h5>
+    <h5 id="retner_name">안녕하세요! <%= data.login_id %> 님!</h5>
     <hr id="box">
-    <p id="my_code">나의 리트너 코드 : </p>
+    <p id="my_code">나의 리트너 코드 : <%= data.code, %>
+    </p>
     <div class="diagno_chat">
         <span class="document">
             <svg width="13" height="17" viewBox="0 0 13 17" fill="none" xmlns="http://www.w3.org/2000/svg">

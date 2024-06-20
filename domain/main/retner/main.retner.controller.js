@@ -58,7 +58,9 @@ const getRetnerMainPage = function (req, res) {
                     today: 3,
                     new_chat: 2,
                 },
-                patients: patients
+                login_id: req.session.user.login_id,
+                patients: patients,
+                code: req.session.user.staff_id,
             }
         });
     }
@@ -80,23 +82,43 @@ const getRetnerCallender = function (req, res) {
         });
     });
 
-    res.render('./main/retner/main.retner.calendar.ejs', { data: { date: currentDate, calendar: calendar } });
+    res.render('./main/retner/main.retner.calendar.ejs', {
+        data: {
+            login_id: req.session.user.login_id, date: currentDate, calendar: calendar, code: req.session.user.staff_id,
+        }, year: currentDate.getFullYear(), month: currentDate.getMonth() + 1
+    });
 }
 
 const getRetnerChatList = function (req, res) {
-    res.render('./main/retner/main.retner.chat.ejs');
+    res.render('./main/retner/main.retner.chat.ejs', {
+        data: {
+            login_id: req.session.user.login_id, code: req.session.user.staff_id,
+        }
+    });
 }
 
 const getRetnerAddExercise = function (req, res) {
-    res.render('./main/retner/main.retner.exercisePush.ejs');
+    res.render('./main/retner/main.retner.exercisePush.ejs', {
+        data: {
+            login_id: req.session.user.login_id, code: req.session.user.staff_id,
+        }
+    });
 }
 
 const getRetnerPatientList = function (req, res) {
-    res.render('./main/retner/main.retner.memberList.ejs');
+    res.render('./main/retner/main.retner.memberList.ejs', {
+        data: {
+            login_id: req.session.user.login_id, code: req.session.user.staff_id,
+        }
+    });
 }
 
 const getRetnerEveryChatList = function (req, res) {
-    res.render('./main/retner/main.retner.memberList.ejs');
+    res.render('./main/retner/main.retner.memberList.ejs', {
+        data: {
+            login_id: req.session.user.login_id, code: req.session.user.staff_id,
+        }
+    });
 }
 
 const getRetnerPatientInfo = function (req, res) {
@@ -136,7 +158,10 @@ const getRetnerPatientInfo = function (req, res) {
                             name: name,
                             hurt: hurt,
                             date: currentDate,
-                            exercises: exercises
+                            exercises: exercises,
+                            login_id: req.session.user.login_id,
+                            code: req.session.user.staff_id,
+
                         }
                     });
                 })
